@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Github,
   Mail,
@@ -626,16 +627,29 @@ function App() {
                     <div className="flex items-center gap-4 flex-wrap pt-4 border-t border-slate-100">
                       {config.links.map((link) => {
                         const LinkIcon = link.icon;
+                        const label = t.links[link.labelKey];
+                        const className =
+                          'inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors';
+
+                        if (link.type === 'internal') {
+                          return (
+                            <Link key={link.labelKey} to={link.to} className={className}>
+                              <LinkIcon size={14} />
+                              {label}
+                            </Link>
+                          );
+                        }
+
                         return (
                           <a
                             key={link.labelKey}
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
+                            className={className}
                           >
                             <LinkIcon size={14} />
-                            {t.links[link.labelKey]}
+                            {label}
                             <ExternalLink size={12} className="text-slate-400" />
                           </a>
                         );

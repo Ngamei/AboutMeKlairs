@@ -98,6 +98,19 @@ export interface TranslationContent {
     linkedin: string;
   };
   footer: { rights: string; github: string; email: string; linkedin: string };
+  caseStudy: {
+    eyebrow: string;
+    backToPortfolio: string;
+    notFound: string;
+    projectOverview: string;
+    workflow: string;
+    toolsUsed: string;
+    implementationSteps: string;
+    finalResult: string;
+    outcome: string;
+    futureImprovements: string;
+    portfolioSummary: string;
+  };
   links: {
     github: string;
     watchDemo: string;
@@ -105,6 +118,8 @@ export interface TranslationContent {
     viewProfile: string;
     viewRepository: string;
     openWorkspace: string;
+    viewCaseStudy: string;
+    liveSite: string;
   };
   modal: {
     title: string;
@@ -200,6 +215,25 @@ const en: TranslationContent = {
     keyWork: 'Key Work',
     techTools: 'Tech / Tools',
     items: {
+      contactAutomation: {
+        tags: ['Workflow Automation', 'Google Apps Script', 'Vercel', 'Email Automation'],
+        title: 'Portfolio Contact Automation System',
+        subtitle: 'Google Apps Script · Google Sheets · Gmail · Vercel · Cloudflare',
+        summary:
+          'Built a lightweight lead capture workflow that saves portfolio inquiries to Google Sheets, sends owner notifications, and sends visitor confirmation emails.',
+        role: 'Product owner, workflow designer, Google Apps Script developer, and full-stack implementer.',
+        keyWork: [
+          'Created Klairs Portfolio Leads Google Sheet with timestamp, contact fields, and email delivery status columns',
+          'Built Google Apps Script Web App with doGet(), doPost(), validation, and JSON handling',
+          'Connected the portfolio contact form using a no-cors POST pattern to the Apps Script endpoint',
+          'Moved the endpoint into VITE_GOOGLE_SCRIPT_URL for Vercel deployment',
+          'Deployed the portfolio on Vercel from GitHub with a custom Cloudflare subdomain',
+          'Added owner notification and visitor confirmation emails with delivery status tracking',
+        ],
+        tech: 'Vite, React, TypeScript, Google Apps Script, Google Sheets, Gmail, Vercel, Cloudflare DNS, GitHub',
+        outcome:
+          'Lightweight CRM-style lead capture workflow that saves inquiries, notifies me, confirms with visitors, and is ready for n8n or CRM extension',
+      },
       helloClever: {
         tags: ['AI Support', 'Documentation', 'Merchant Experience', 'QA'],
         title: 'Hello Clever Support Engineer AI',
@@ -402,6 +436,19 @@ const en: TranslationContent = {
     email: 'Email',
     linkedin: 'LinkedIn',
   },
+  caseStudy: {
+    eyebrow: 'Case Study',
+    backToPortfolio: 'Back to Portfolio',
+    notFound: 'Case study not found',
+    projectOverview: 'Project Overview',
+    workflow: 'Workflow',
+    toolsUsed: 'Tools Used',
+    implementationSteps: 'Implementation Steps',
+    finalResult: 'Final Result',
+    outcome: 'Outcome',
+    futureImprovements: 'Future Improvements',
+    portfolioSummary: 'Portfolio Summary',
+  },
   links: {
     github: 'GitHub',
     watchDemo: 'Watch Demo',
@@ -409,6 +456,8 @@ const en: TranslationContent = {
     viewProfile: 'View Profile',
     viewRepository: 'View Repository',
     openWorkspace: 'Open Workspace',
+    viewCaseStudy: 'View Case Study',
+    liveSite: 'Live Site',
   },
   modal: {
     title: "Let's Work Together",
@@ -512,6 +561,25 @@ const vi: TranslationContent = {
     keyWork: 'Công việc chính',
     techTools: 'Công nghệ / Công cụ',
     items: {
+      contactAutomation: {
+        tags: ['Tự động hóa Quy trình', 'Google Apps Script', 'Vercel', 'Tự động hóa Email'],
+        title: 'Portfolio Contact Automation System',
+        subtitle: 'Google Apps Script · Google Sheets · Gmail · Vercel · Cloudflare',
+        summary:
+          'Xây dựng quy trình thu lead nhẹ lưu yêu cầu liên hệ vào Google Sheets, gửi thông báo cho chủ sở hữu và email xác nhận cho khách truy cập.',
+        role: 'Product owner, thiết kế quy trình, phát triển Google Apps Script và triển khai full-stack.',
+        keyWork: [
+          'Tạo Google Sheet Klairs Portfolio Leads với timestamp, trường liên hệ và cột trạng thái email',
+          'Xây dựng Google Apps Script Web App với doGet(), doPost(), validation và xử lý JSON',
+          'Kết nối form liên hệ portfolio bằng POST no-cors tới endpoint Apps Script',
+          'Chuyển endpoint vào VITE_GOOGLE_SCRIPT_URL cho triển khai Vercel',
+          'Triển khai portfolio trên Vercel từ GitHub với subdomain Cloudflare tùy chỉnh',
+          'Thêm email thông báo chủ sở hữu, email xác nhận khách và theo dõi trạng thái gửi',
+        ],
+        tech: 'Vite, React, TypeScript, Google Apps Script, Google Sheets, Gmail, Vercel, Cloudflare DNS, GitHub',
+        outcome:
+          'Quy trình thu lead kiểu CRM nhẹ: lưu yêu cầu, thông báo cho tôi, xác nhận với khách, sẵn sàng mở rộng n8n hoặc CRM',
+      },
       helloClever: {
         tags: ['Hỗ trợ AI', 'Tài liệu', 'Trải nghiệm Merchant', 'QA'],
         title: 'Hello Clever Support Engineer AI',
@@ -714,6 +782,19 @@ const vi: TranslationContent = {
     email: 'Email',
     linkedin: 'LinkedIn',
   },
+  caseStudy: {
+    eyebrow: 'Case Study',
+    backToPortfolio: 'Về Portfolio',
+    notFound: 'Không tìm thấy case study',
+    projectOverview: 'Tổng quan dự án',
+    workflow: 'Quy trình',
+    toolsUsed: 'Công cụ sử dụng',
+    implementationSteps: 'Các bước triển khai',
+    finalResult: 'Kết quả cuối',
+    outcome: 'Thành quả',
+    futureImprovements: 'Cải tiến tương lai',
+    portfolioSummary: 'Tóm tắt Portfolio',
+  },
   links: {
     github: 'GitHub',
     watchDemo: 'Xem demo',
@@ -721,6 +802,8 @@ const vi: TranslationContent = {
     viewProfile: 'Xem hồ sơ',
     viewRepository: 'Xem kho mã',
     openWorkspace: 'Mở workspace',
+    viewCaseStudy: 'Xem Case Study',
+    liveSite: 'Trang live',
   },
   modal: {
     title: 'Hãy cùng làm việc',
@@ -823,6 +906,25 @@ const ko: TranslationContent = {
     keyWork: '주요 작업',
     techTools: '기술 / 도구',
     items: {
+      contactAutomation: {
+        tags: ['워크플로 자동화', 'Google Apps Script', 'Vercel', '이메일 자동화'],
+        title: 'Portfolio Contact Automation System',
+        subtitle: 'Google Apps Script · Google Sheets · Gmail · Vercel · Cloudflare',
+        summary:
+          '포트폴리오 문의를 Google Sheets에 저장하고, 소유자 알림과 방문자 확인 이메일을 보내는 경량 리드 캡처 워크플로를 구축했습니다.',
+        role: '프로덕트 오너, 워크플로 설계자, Google Apps Script 개발자, 풀스택 구현 리드.',
+        keyWork: [
+          '타임스탬프, 연락처 필드, 이메일 전송 상태 열이 있는 Klairs Portfolio Leads Google Sheet 생성',
+          'doGet(), doPost(), 검증, JSON 처리가 포함된 Google Apps Script Web App 구축',
+          'no-cors POST 패턴으로 포트폴리오 연락 폼을 Apps Script 엔드포인트에 연결',
+          'Vercel 배포를 위해 엔드포인트를 VITE_GOOGLE_SCRIPT_URL로 이동',
+          'Cloudflare 커스텀 서브도메인으로 GitHub에서 Vercel에 포트폴리오 배포',
+          '소유자 알림 및 방문자 확인 이메일과 전송 상태 추적 추가',
+        ],
+        tech: 'Vite, React, TypeScript, Google Apps Script, Google Sheets, Gmail, Vercel, Cloudflare DNS, GitHub',
+        outcome:
+          '문의 저장, 알림, 방문자 확인, n8n 또는 CRM 확장 준비가 된 경량 CRM 스타일 리드 캡처 워크플로',
+      },
       helloClever: {
         tags: ['AI 지원', '문서화', '머천트 경험', 'QA'],
         title: 'Hello Clever Support Engineer AI',
@@ -1025,6 +1127,19 @@ const ko: TranslationContent = {
     email: '이메일',
     linkedin: 'LinkedIn',
   },
+  caseStudy: {
+    eyebrow: '케이스 스터디',
+    backToPortfolio: '포트폴리오로 돌아가기',
+    notFound: '케이스 스터디를 찾을 수 없습니다',
+    projectOverview: '프로젝트 개요',
+    workflow: '워크플로',
+    toolsUsed: '사용 도구',
+    implementationSteps: '구현 단계',
+    finalResult: '최종 결과',
+    outcome: '성과',
+    futureImprovements: '향후 개선',
+    portfolioSummary: '포트폴리오 요약',
+  },
   links: {
     github: 'GitHub',
     watchDemo: '데모 보기',
@@ -1032,6 +1147,8 @@ const ko: TranslationContent = {
     viewProfile: '프로필 보기',
     viewRepository: '저장소 보기',
     openWorkspace: '워크스페이스 열기',
+    viewCaseStudy: '케이스 스터디 보기',
+    liveSite: '라이브 사이트',
   },
   modal: {
     title: '함께 일해요',

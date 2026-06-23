@@ -1,20 +1,15 @@
 import type { LucideIcon } from 'lucide-react';
-import { Bot, Users, Zap, Github, Play, Globe, FileText, Lightbulb, Heart } from 'lucide-react';
+import { Bot, Users, Zap, Github, Play, Globe, FileText, Lightbulb, Heart, Mail } from 'lucide-react';
 
-export interface ProjectLinkConfig {
-  labelKey: keyof typeof linkLabelKeys;
-  href: string;
-  icon: LucideIcon;
-}
+export type ExternalLinkKey = 'github' | 'watchDemo' | 'n8nWorkspace' | 'liveSite';
+export type InternalLinkKey = 'viewCaseStudy';
 
-const linkLabelKeys = {
-  github: true,
-  watchDemo: true,
-  n8nWorkspace: true,
-} as const;
+export type ProjectLinkConfig =
+  | { type: 'external'; labelKey: ExternalLinkKey; href: string; icon: LucideIcon }
+  | { type: 'internal'; labelKey: InternalLinkKey; to: string; icon: LucideIcon };
 
 export interface ProjectConfig {
-  id: 'helloClever' | 'broot' | 'crewAnywhere';
+  id: 'contactAutomation' | 'helloClever' | 'broot' | 'crewAnywhere';
   icon: LucideIcon;
   links: ProjectLinkConfig[];
 }
@@ -33,26 +28,36 @@ export interface EvidenceConfig {
 
 export const projectConfigs: ProjectConfig[] = [
   {
+    id: 'contactAutomation',
+    icon: Mail,
+    links: [
+      { type: 'internal', labelKey: 'viewCaseStudy', to: '/case-studies/portfolio-contact-automation', icon: FileText },
+      { type: 'external', labelKey: 'liveSite', href: 'https://aboutme.klairsthefirst.com', icon: Globe },
+      { type: 'external', labelKey: 'github', href: 'https://github.com/Ngamei/AboutMeKlairs', icon: Github },
+    ],
+  },
+  {
     id: 'helloClever',
     icon: Bot,
-    links: [{ labelKey: 'github', href: 'https://github.com/Ngamei/klever-support-engineer-ai', icon: Github }],
+    links: [{ type: 'external', labelKey: 'github', href: 'https://github.com/Ngamei/klever-support-engineer-ai', icon: Github }],
   },
   {
     id: 'broot',
     icon: Zap,
     links: [
       {
+        type: 'external',
         labelKey: 'watchDemo',
         href: 'https://app.guidde.com/playbooks/playlist/bJf686sP6H9wSqw9x2W7WG?origin=zoab0ogvHsgFE4oEVUArPm8Tyqo1&active=0',
         icon: Play,
       },
-      { labelKey: 'n8nWorkspace', href: 'https://ngamei2912.app.n8n.cloud/', icon: Globe },
+      { type: 'external', labelKey: 'n8nWorkspace', href: 'https://ngamei2912.app.n8n.cloud/', icon: Globe },
     ],
   },
   {
     id: 'crewAnywhere',
     icon: Users,
-    links: [{ labelKey: 'github', href: 'https://github.com/Ngamei/CrewAnywhere', icon: Github }],
+    links: [{ type: 'external', labelKey: 'github', href: 'https://github.com/Ngamei/CrewAnywhere', icon: Github }],
   },
 ];
 
