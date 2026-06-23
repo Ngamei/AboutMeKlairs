@@ -21,7 +21,7 @@ export interface CaseStudyContent {
 export const caseStudies: Record<string, CaseStudyContent> = {
   'portfolio-contact-automation': {
     slug: 'portfolio-contact-automation',
-    title: 'Portfolio Contact Automation System',
+    title: 'Portfolio Contact Automation Workflow',
     subtitle: 'Google Apps Script · Google Sheets · Gmail · Vercel · Cloudflare',
     overview: [
       'I built a lightweight contact automation system for my personal portfolio website to capture visitor inquiries, save them into Google Sheets, and send automated email notifications.',

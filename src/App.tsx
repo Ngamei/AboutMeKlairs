@@ -21,7 +21,8 @@ import {
 } from 'lucide-react';
 import { submitContactForm } from './lib/contact';
 import { useLanguage, LanguageSelector } from './lib/i18n';
-import { projectConfigs, conceptConfigs, evidenceConfigs, skillGroupIds } from './portfolio-data';
+import { featuredProductProjects, automationProjects, conceptConfigs, evidenceConfigs, skillGroupIds } from './portfolio-data';
+import type { ProjectConfig } from './portfolio-data';
 
 /* ─── Contact Modal ─── */
 interface ContactModalProps {
@@ -315,7 +316,7 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
-      const sections = ['hero', 'about', 'work', 'projects', 'concepts', 'evidence', 'skills', 'outcomes', 'approach', 'contact'];
+      const sections = ['hero', 'about', 'work', 'projects', 'evidence', 'skills', 'outcomes', 'approach', 'contact'];
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
@@ -337,6 +338,97 @@ function App() {
       el.scrollIntoView({ behavior: 'smooth' });
       setMobileMenuOpen(false);
     }
+  };
+
+  const renderProjectCard = (config: ProjectConfig) => {
+    const Icon = config.icon;
+    const project = t.projects.items[config.id];
+
+    return (
+      <div
+        key={config.id}
+        className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+      >
+        <div className="p-6 sm:p-8">
+          <div className="flex items-center gap-2 mb-4 flex-wrap">
+            <div className="p-2 rounded-lg bg-accent-50 text-accent-600">
+              <Icon size={18} />
+            </div>
+            {project.tags.map((tag) => (
+              <span key={tag} className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-medium">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-accent-700 transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-sm text-slate-500 mb-3">{project.subtitle}</p>
+          <p className="text-sm text-slate-600 leading-relaxed mb-6">{project.summary}</p>
+
+          <div className="grid sm:grid-cols-2 gap-5 mb-6">
+            <div>
+              <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">{t.projects.myRole}</h4>
+              <p className="text-sm text-slate-600 leading-relaxed">{project.role}</p>
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">{t.projects.outcome}</h4>
+              <p className="text-sm text-slate-600 leading-relaxed">{project.outcome}</p>
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">{t.projects.keyWork}</h4>
+            <ul className="space-y-1.5">
+              {project.keyWork.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
+                  <CheckCircle2 size={13} className="text-accent-500 mt-0.5 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">{t.projects.techTools}</h4>
+            <p className="text-sm text-slate-600 leading-relaxed">{project.tech}</p>
+          </div>
+
+          <div className="flex items-center gap-4 flex-wrap pt-4 border-t border-slate-100">
+            {config.links.map((link) => {
+              const LinkIcon = link.icon;
+              const label = t.links[link.labelKey];
+              const className =
+                'inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors';
+
+              if (link.type === 'internal') {
+                return (
+                  <Link key={link.labelKey} to={link.to} className={className}>
+                    <LinkIcon size={14} />
+                    {label}
+                  </Link>
+                );
+              }
+
+              return (
+                <a
+                  key={link.labelKey}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  <LinkIcon size={14} />
+                  {label}
+                  <ExternalLink size={12} className="text-slate-400" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
   };
 
   const navItems = [
@@ -560,136 +652,71 @@ function App() {
         </div>
       </section>
 
-      {/* ─── Featured Projects ─── */}
+      {/* ─── Projects ─── */}
       <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
           <div className="mb-3">
             <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.projects.eyebrow}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight">{t.projects.title}</h2>
-          <p className="text-slate-500 mb-12 max-w-xl">{t.projects.description}</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-16 tracking-tight">{t.projects.title}</h2>
 
-          <div className="space-y-8">
-            {projectConfigs.map((config) => {
-              const Icon = config.icon;
-              const project = t.projects.items[config.id];
-              return (
-                <div
-                  key={config.id}
-                  className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
-                >
-                  <div className="p-6 sm:p-8">
-                    <div className="flex items-center gap-2 mb-4 flex-wrap">
-                      <div className="p-2 rounded-lg bg-accent-50 text-accent-600">
-                        <Icon size={18} />
+          <div className="space-y-20">
+            <div>
+              <div className="mb-8">
+                <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">
+                  {t.projects.subsections.featured.eyebrow}
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 mb-3 tracking-tight">
+                  {t.projects.subsections.featured.title}
+                </h3>
+                <p className="text-slate-500 max-w-xl">{t.projects.subsections.featured.subtitle}</p>
+              </div>
+              <div className="space-y-8">{featuredProductProjects.map(renderProjectCard)}</div>
+            </div>
+
+            <div>
+              <div className="mb-8">
+                <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">
+                  {t.projects.subsections.automation.eyebrow}
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 mb-3 tracking-tight">
+                  {t.projects.subsections.automation.title}
+                </h3>
+                <p className="text-slate-500 max-w-2xl">{t.projects.subsections.automation.subtitle}</p>
+              </div>
+              <div className="space-y-8">{automationProjects.map(renderProjectCard)}</div>
+            </div>
+
+            <div>
+              <div className="mb-8">
+                <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">
+                  {t.projects.subsections.concepts.eyebrow}
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 mb-3 tracking-tight">
+                  {t.projects.subsections.concepts.title}
+                </h3>
+                <p className="text-slate-500 max-w-xl">{t.projects.subsections.concepts.subtitle}</p>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                {conceptConfigs.map((config) => {
+                  const Icon = config.icon;
+                  const concept = t.concepts.items[config.id];
+                  return (
+                    <div
+                      key={config.id}
+                      className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-md transition-shadow"
+                    >
+                      <div className="p-2.5 rounded-xl bg-accent-50 text-accent-600 w-fit mb-5">
+                        <Icon size={22} />
                       </div>
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 text-xs font-medium">
-                          {tag}
-                        </span>
-                      ))}
+                      <h4 className="text-lg font-bold text-slate-900 mb-1">{concept.title}</h4>
+                      <p className="text-sm text-slate-500 mb-4">{concept.subtitle}</p>
+                      <p className="text-sm text-slate-600 leading-relaxed">{concept.description}</p>
                     </div>
-
-                    <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-accent-700 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-slate-500 mb-3">{project.subtitle}</p>
-                    <p className="text-sm text-slate-600 leading-relaxed mb-6">{project.summary}</p>
-
-                    <div className="grid sm:grid-cols-2 gap-5 mb-6">
-                      <div>
-                        <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">{t.projects.myRole}</h4>
-                        <p className="text-sm text-slate-600 leading-relaxed">{project.role}</p>
-                      </div>
-                      <div>
-                        <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">{t.projects.outcome}</h4>
-                        <p className="text-sm text-slate-600 leading-relaxed">{project.outcome}</p>
-                      </div>
-                    </div>
-
-                    <div className="mb-6">
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">{t.projects.keyWork}</h4>
-                      <ul className="space-y-1.5">
-                        {project.keyWork.map((item) => (
-                          <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                            <CheckCircle2 size={13} className="text-accent-500 mt-0.5 shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mb-6">
-                      <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">{t.projects.techTools}</h4>
-                      <p className="text-sm text-slate-600 leading-relaxed">{project.tech}</p>
-                    </div>
-
-                    <div className="flex items-center gap-4 flex-wrap pt-4 border-t border-slate-100">
-                      {config.links.map((link) => {
-                        const LinkIcon = link.icon;
-                        const label = t.links[link.labelKey];
-                        const className =
-                          'inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors';
-
-                        if (link.type === 'internal') {
-                          return (
-                            <Link key={link.labelKey} to={link.to} className={className}>
-                              <LinkIcon size={14} />
-                              {label}
-                            </Link>
-                          );
-                        }
-
-                        return (
-                          <a
-                            key={link.labelKey}
-                            href={link.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={className}
-                          >
-                            <LinkIcon size={14} />
-                            {label}
-                            <ExternalLink size={12} className="text-slate-400" />
-                          </a>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Product Ideas & Concepts ─── */}
-      <section id="concepts" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16 bg-slate-50/50">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-3">
-            <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.concepts.eyebrow}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight">{t.concepts.title}</h2>
-          <p className="text-slate-500 mb-12 max-w-xl">{t.concepts.description}</p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {conceptConfigs.map((config) => {
-              const Icon = config.icon;
-              const concept = t.concepts.items[config.id];
-              return (
-                <div
-                  key={config.id}
-                  className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="p-2.5 rounded-xl bg-accent-50 text-accent-600 w-fit mb-5">
-                    <Icon size={22} />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">{concept.title}</h3>
-                  <p className="text-sm text-slate-500 mb-4">{concept.subtitle}</p>
-                  <p className="text-sm text-slate-600 leading-relaxed">{concept.description}</p>
-                </div>
-              );
-            })}
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </section>

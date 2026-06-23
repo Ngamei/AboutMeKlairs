@@ -56,6 +56,11 @@ export interface TranslationContent {
     outcome: string;
     keyWork: string;
     techTools: string;
+    subsections: {
+      featured: { eyebrow: string; title: string; subtitle: string };
+      automation: { eyebrow: string; title: string; subtitle: string };
+      concepts: { eyebrow: string; title: string; subtitle: string };
+    };
     items: Record<string, ProjectTranslation>;
   };
   concepts: {
@@ -207,17 +212,35 @@ const en: TranslationContent = {
     ],
   },
   projects: {
-    eyebrow: 'Featured Proof',
-    title: 'Featured Projects',
-    description: 'Selected work showing product thinking, automation, QA, and AI implementation.',
+    eyebrow: 'Work',
+    title: 'Projects',
+    description: 'Product builds, automation workflows, and concept work showing how I design, test, and ship practical systems.',
     myRole: 'My Role',
     outcome: 'Outcome',
     keyWork: 'Key Work',
     techTools: 'Tech / Tools',
+    subsections: {
+      featured: {
+        eyebrow: 'Featured Proof',
+        title: 'Featured Product Projects',
+        subtitle: 'Selected product work showing AI implementation, marketplace thinking, QA depth, and structured delivery.',
+      },
+      automation: {
+        eyebrow: 'Automation Proof',
+        title: 'Automation & Integration Workflows',
+        subtitle:
+          'Practical systems I built to connect forms, APIs, CRMs, spreadsheets, email notifications, and operational workflows.',
+      },
+      concepts: {
+        eyebrow: 'Concepts',
+        title: 'Product Ideas & Concepts',
+        subtitle: 'Product concepts showing how I think about workflow design, merchant experience, and vertical platforms.',
+      },
+    },
     items: {
       contactAutomation: {
         tags: ['Workflow Automation', 'Google Apps Script', 'Vercel', 'Email Automation'],
-        title: 'Portfolio Contact Automation System',
+        title: 'Portfolio Contact Automation Workflow',
         subtitle: 'Google Apps Script · Google Sheets · Gmail · Vercel · Cloudflare',
         summary:
           'Built a lightweight lead capture workflow that saves portfolio inquiries to Google Sheets, sends owner notifications, and sends visitor confirmation emails.',
@@ -254,7 +277,7 @@ const en: TranslationContent = {
       },
       broot: {
         tags: ['Customer Success', 'Automation', 'CRM', 'QA'],
-        title: 'Broot CRM Automation Workflows',
+        title: 'Broot → CRM Sync Workflows',
         subtitle: 'Webhook and CRM automation testing',
         summary:
           'End-to-end CRM automation work connecting Broot with n8n and multiple CRM platforms, including webhook configuration, field mapping, integration testing, and operational documentation.',
@@ -553,17 +576,35 @@ const vi: TranslationContent = {
     ],
   },
   projects: {
-    eyebrow: 'Bằng chứng nổi bật',
-    title: 'Dự án tiêu biểu',
-    description: 'Các công việc được chọn thể hiện tư duy sản phẩm, tự động hóa, QA và triển khai AI.',
+    eyebrow: 'Công việc',
+    title: 'Dự án',
+    description: 'Sản phẩm, quy trình tự động hóa và ý tưởng concept thể hiện cách tôi thiết kế, kiểm thử và triển khai hệ thống thực tế.',
     myRole: 'Vai trò của tôi',
     outcome: 'Kết quả',
     keyWork: 'Công việc chính',
     techTools: 'Công nghệ / Công cụ',
+    subsections: {
+      featured: {
+        eyebrow: 'Bằng chứng nổi bật',
+        title: 'Dự án sản phẩm tiêu biểu',
+        subtitle: 'Công việc sản phẩm được chọn thể hiện triển khai AI, tư duy marketplace, độ sâu QA và giao hàng có cấu trúc.',
+      },
+      automation: {
+        eyebrow: 'Bằng chứng tự động hóa',
+        title: 'Quy trình Tự động hóa & Tích hợp',
+        subtitle:
+          'Các hệ thống thực tế tôi xây dựng để kết nối form, API, CRM, bảng tính, thông báo email và quy trình vận hành.',
+      },
+      concepts: {
+        eyebrow: 'Ý tưởng',
+        title: 'Ý tưởng & Concept Sản phẩm',
+        subtitle: 'Các concept sản phẩm thể hiện cách tôi nghĩ về thiết kế quy trình, trải nghiệm merchant và nền tảng theo ngành dọc.',
+      },
+    },
     items: {
       contactAutomation: {
         tags: ['Tự động hóa Quy trình', 'Google Apps Script', 'Vercel', 'Tự động hóa Email'],
-        title: 'Portfolio Contact Automation System',
+        title: 'Portfolio Contact Automation Workflow',
         subtitle: 'Google Apps Script · Google Sheets · Gmail · Vercel · Cloudflare',
         summary:
           'Xây dựng quy trình thu lead nhẹ lưu yêu cầu liên hệ vào Google Sheets, gửi thông báo cho chủ sở hữu và email xác nhận cho khách truy cập.',
@@ -600,7 +641,7 @@ const vi: TranslationContent = {
       },
       broot: {
         tags: ['Customer Success', 'Tự động hóa', 'CRM', 'QA'],
-        title: 'Broot CRM Automation Workflows',
+        title: 'Broot → CRM Sync Workflows',
         subtitle: 'Kiểm thử webhook và tự động hóa CRM',
         summary:
           'Công việc tự động hóa CRM end-to-end kết nối Broot với n8n và nhiều nền tảng CRM, bao gồm cấu hình webhook, ánh xạ trường, kiểm thử tích hợp và tài liệu vận hành.',
@@ -898,17 +939,35 @@ const ko: TranslationContent = {
     ],
   },
   projects: {
-    eyebrow: '주요 증거',
-    title: '주요 프로젝트',
-    description: '제품 사고, 자동화, QA, AI 구현을 보여주는 선별된 작업입니다.',
+    eyebrow: '작업',
+    title: '프로젝트',
+    description: '제품 구축, 자동화 워크플로, 컨셉 작업을 통해 실용적인 시스템을 설계, 테스트, 구현하는 방식을 보여줍니다.',
     myRole: '나의 역할',
     outcome: '성과',
     keyWork: '주요 작업',
     techTools: '기술 / 도구',
+    subsections: {
+      featured: {
+        eyebrow: '주요 증거',
+        title: '주요 제품 프로젝트',
+        subtitle: 'AI 구현, 마켓플레이스 사고, QA 깊이, 구조화된 전달을 보여주는 선별된 제품 작업입니다.',
+      },
+      automation: {
+        eyebrow: '자동화 증거',
+        title: '자동화 및 통합 워크플로',
+        subtitle:
+          '폼, API, CRM, 스프레드시트, 이메일 알림, 운영 워크플로를 연결하기 위해 구축한 실용적인 시스템입니다.',
+      },
+      concepts: {
+        eyebrow: '컨셉',
+        title: '제품 아이디어 및 컨셉',
+        subtitle: '워크플로 설계, 머천트 경험, 수직 플랫폼에 대해 어떻게 생각하는지 보여주는 제품 컨셉입니다.',
+      },
+    },
     items: {
       contactAutomation: {
         tags: ['워크플로 자동화', 'Google Apps Script', 'Vercel', '이메일 자동화'],
-        title: 'Portfolio Contact Automation System',
+        title: 'Portfolio Contact Automation Workflow',
         subtitle: 'Google Apps Script · Google Sheets · Gmail · Vercel · Cloudflare',
         summary:
           '포트폴리오 문의를 Google Sheets에 저장하고, 소유자 알림과 방문자 확인 이메일을 보내는 경량 리드 캡처 워크플로를 구축했습니다.',
@@ -945,7 +1004,7 @@ const ko: TranslationContent = {
       },
       broot: {
         tags: ['Customer Success', '자동화', 'CRM', 'QA'],
-        title: 'Broot CRM Automation Workflows',
+        title: 'Broot → CRM Sync Workflows',
         subtitle: '웹훅 및 CRM 자동화 테스트',
         summary:
           '웹훅 구성, 필드 매핑, 통합 테스트, 운영 문서를 포함하여 Broot를 n8n 및 여러 CRM 플랫폼과 연결하는 엔드투엔드 CRM 자동화 작업입니다.',

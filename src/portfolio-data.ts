@@ -26,8 +26,18 @@ export interface EvidenceConfig {
   onRequest?: boolean;
 }
 
-export const projectConfigs: ProjectConfig[] = [
-  {
+const projectConfigsById: Record<ProjectConfig['id'], ProjectConfig> = {
+  helloClever: {
+    id: 'helloClever',
+    icon: Bot,
+    links: [{ type: 'external', labelKey: 'github', href: 'https://github.com/Ngamei/klever-support-engineer-ai', icon: Github }],
+  },
+  crewAnywhere: {
+    id: 'crewAnywhere',
+    icon: Users,
+    links: [{ type: 'external', labelKey: 'github', href: 'https://github.com/Ngamei/CrewAnywhere', icon: Github }],
+  },
+  contactAutomation: {
     id: 'contactAutomation',
     icon: Mail,
     links: [
@@ -36,12 +46,7 @@ export const projectConfigs: ProjectConfig[] = [
       { type: 'external', labelKey: 'github', href: 'https://github.com/Ngamei/AboutMeKlairs', icon: Github },
     ],
   },
-  {
-    id: 'helloClever',
-    icon: Bot,
-    links: [{ type: 'external', labelKey: 'github', href: 'https://github.com/Ngamei/klever-support-engineer-ai', icon: Github }],
-  },
-  {
+  broot: {
     id: 'broot',
     icon: Zap,
     links: [
@@ -54,11 +59,16 @@ export const projectConfigs: ProjectConfig[] = [
       { type: 'external', labelKey: 'n8nWorkspace', href: 'https://ngamei2912.app.n8n.cloud/', icon: Globe },
     ],
   },
-  {
-    id: 'crewAnywhere',
-    icon: Users,
-    links: [{ type: 'external', labelKey: 'github', href: 'https://github.com/Ngamei/CrewAnywhere', icon: Github }],
-  },
+};
+
+export const featuredProductProjects: ProjectConfig[] = [
+  projectConfigsById.helloClever,
+  projectConfigsById.crewAnywhere,
+];
+
+export const automationProjects: ProjectConfig[] = [
+  projectConfigsById.contactAutomation,
+  projectConfigsById.broot,
 ];
 
 export const conceptConfigs: ConceptConfig[] = [
