@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide Bolt hosting badge when deployed from Bolt */
+a[href*="bolt.new"],
+[data-bolt-badge],
+.bolt-badge,
+#bolt-badge {
+  display: none !important;
+}
