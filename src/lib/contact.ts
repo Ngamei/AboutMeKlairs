@@ -1,5 +1,8 @@
-export const CONTACT_FORM_ENDPOINT =
+const DEFAULT_CONTACT_FORM_ENDPOINT =
   'https://script.google.com/macros/s/AKfycbxsHK1Hyv0p4EwjJEBidGsJZifif4RnkJuPLCjt-bQ0LUQkzFfhRbNmZQ7_c8G9YqFF/exec';
+
+export const CONTACT_FORM_ENDPOINT =
+  import.meta.env.VITE_GOOGLE_SCRIPT_URL || DEFAULT_CONTACT_FORM_ENDPOINT;
 
 export interface ContactFormPayload {
   name: string;
