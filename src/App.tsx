@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import QRCode from 'react-qr-code';
 import {
   Github,
   Mail,
@@ -21,7 +22,7 @@ import {
 } from 'lucide-react';
 import { submitContactForm } from './lib/contact';
 import { useLanguage, LanguageSelector } from './lib/i18n';
-import { featuredProductProjects, automationProjects, conceptConfigs, evidenceConfigs, skillGroupIds } from './portfolio-data';
+import { featuredProductProjects, automationProjects, conceptConfigs, evidenceConfigs, skillGroupIds, PORTFOLIO_URL } from './portfolio-data';
 import type { ProjectConfig } from './portfolio-data';
 
 /* ─── Contact Modal ─── */
@@ -888,6 +889,27 @@ function App() {
               {t.contact.linkedin}
             </a>
           </div>
+
+          <a
+            href={PORTFOLIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t.contact.scanPortfolioTitle} — ${t.contact.scanPortfolioCaption}`}
+            className="mt-12 mx-auto block w-full max-w-xs bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow"
+          >
+            <h3 className="text-base font-bold text-slate-900 text-center mb-5">{t.contact.scanPortfolioTitle}</h3>
+            <div className="flex justify-center p-4 rounded-xl bg-slate-50 border border-slate-100">
+              <QRCode
+                value={PORTFOLIO_URL}
+                size={148}
+                level="M"
+                bgColor="#f8fafc"
+                fgColor="#0f172a"
+                className="h-auto w-full max-w-[148px]"
+              />
+            </div>
+            <p className="mt-4 text-sm text-slate-500 text-center leading-relaxed">{t.contact.scanPortfolioCaption}</p>
+          </a>
         </div>
       </section>
 

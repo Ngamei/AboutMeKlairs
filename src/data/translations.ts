@@ -101,6 +101,8 @@ export interface TranslationContent {
     contactMe: string;
     email: string;
     linkedin: string;
+    scanPortfolioTitle: string;
+    scanPortfolioCaption: string;
   };
   footer: { rights: string; github: string; email: string; linkedin: string };
   caseStudy: {
@@ -369,11 +371,6 @@ const en: TranslationContent = {
         description:
           'Documentation covering endpoint configuration, headers, Basic Auth, request body mapping, nested CRM fields, and dropdown values.',
       },
-      contactLogic: {
-        title: 'Contact Processing Logic',
-        description:
-          'Decision matrix for Business Card, LinkedIn QR, Contact QR, and API contact creation depending on enrichment credit availability.',
-      },
       resume: {
         title: 'Product Manager Resume',
         description:
@@ -452,6 +449,8 @@ const en: TranslationContent = {
     contactMe: 'Contact Me',
     email: 'Email',
     linkedin: 'LinkedIn',
+    scanPortfolioTitle: 'Scan My Portfolio',
+    scanPortfolioCaption: 'Scan to open my portfolio.',
   },
   footer: {
     rights: 'All rights reserved.',
@@ -733,11 +732,6 @@ const vi: TranslationContent = {
         description:
           'Tài liệu về cấu hình endpoint, headers, Basic Auth, ánh xạ request body, trường CRM lồng nhau và giá trị dropdown.',
       },
-      contactLogic: {
-        title: 'Logic Xử lý Contact',
-        description:
-          'Ma trận quyết định cho Business Card, LinkedIn QR, Contact QR và tạo contact qua API tùy theo credit enrichment.',
-      },
       resume: {
         title: 'CV Product Manager',
         description:
@@ -816,6 +810,8 @@ const vi: TranslationContent = {
     contactMe: 'Liên hệ',
     email: 'Email',
     linkedin: 'LinkedIn',
+    scanPortfolioTitle: 'Quét Portfolio của tôi',
+    scanPortfolioCaption: 'Quét để mở portfolio.',
   },
   footer: {
     rights: 'Bảo lưu mọi quyền.',
@@ -1096,11 +1092,6 @@ const ko: TranslationContent = {
         description:
           '엔드포인트 구성, 헤더, Basic Auth, 요청 본문 매핑, 중첩 CRM 필드, 드롭다운 값을 다루는 문서.',
       },
-      contactLogic: {
-        title: '연락처 처리 로직',
-        description:
-          'enrichment 크레딧 가용성에 따른 명함, LinkedIn QR, Contact QR, API 연락처 생성에 대한 의사결정 매트릭스.',
-      },
       resume: {
         title: '프로덕트 매니저 이력서',
         description:
@@ -1179,6 +1170,8 @@ const ko: TranslationContent = {
     contactMe: '연락하기',
     email: '이메일',
     linkedin: 'LinkedIn',
+    scanPortfolioTitle: '포트폴리오 스캔',
+    scanPortfolioCaption: '스캔하여 포트폴리오를 여세요.',
   },
   footer: {
     rights: '모든 권리 보유.',

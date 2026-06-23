@@ -87,7 +87,6 @@ export const evidenceConfigs: EvidenceConfig[] = [
   },
   { id: 'n8nWorkspace', icon: Globe, href: 'https://ngamei2912.app.n8n.cloud/' },
   { id: 'streakWebhook', icon: FileText, onRequest: true },
-  { id: 'contactLogic', icon: FileText, onRequest: true },
   { id: 'resume', icon: FileText, onRequest: true },
 ];
 
@@ -99,3 +98,5 @@ export const skillGroupIds = [
   'frontend',
   'crmTools',
 ] as const;
+
+export const PORTFOLIO_URL = 'https://aboutme.klairsthefirst.com/';
