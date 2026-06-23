@@ -10,7 +10,7 @@ export default function CaseStudyPage() {
 
   if (!cs) {
     return (
-      <div className="min-h-screen bg-white text-slate-800 font-sans antialiased flex items-center justify-center px-4">
+      <div className="min-h-screen text-slate-800 font-sans antialiased flex items-center justify-center px-4">
         <div className="text-center max-w-md">
           <h1 className="text-2xl font-bold text-slate-900 mb-3">{t.caseStudy.notFound}</h1>
           <Link
@@ -26,8 +26,8 @@ export default function CaseStudyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-slate-800 font-sans antialiased">
-      <header className="border-b border-slate-100 bg-white/90 backdrop-blur-md sticky top-0 z-50">
+    <div className="min-h-screen text-slate-800 font-sans antialiased">
+      <header className="border-b border-slate-200/80 bg-white/85 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link
             to="/"
@@ -100,7 +100,7 @@ export default function CaseStudyPage() {
                   <ul className="space-y-1.5">
                     {step.bullets.map((item) => (
                       <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                        <CheckCircle2 size={13} className="text-accent-500 mt-0.5 shrink-0" />
+                        <CheckCircle2 size={13} className="text-accent-600 mt-0.5 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -128,7 +128,7 @@ export default function CaseStudyPage() {
           <ul className="space-y-1.5">
             {cs.outcome.bullets.map((item) => (
               <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                <CheckCircle2 size={13} className="text-accent-500 mt-0.5 shrink-0" />
+                <CheckCircle2 size={13} className="text-accent-600 mt-0.5 shrink-0" />
                 <span>{item}</span>
               </li>
             ))}
@@ -140,7 +140,7 @@ export default function CaseStudyPage() {
           <ul className="space-y-1.5">
             {cs.futureImprovements.map((item) => (
               <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                <CheckCircle2 size={13} className="text-accent-500 mt-0.5 shrink-0" />
+                <CheckCircle2 size={13} className="text-accent-600 mt-0.5 shrink-0" />
                 <span>{item}</span>
               </li>
             ))}

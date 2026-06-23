@@ -142,13 +142,13 @@ function ContactModal({ open, onClose }: ContactModalProps) {
         <div className="p-6">
           {status === 'success' ? (
             <div className="text-center py-10">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent-50 text-accent-600 mb-4">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent-50 border border-accent-200 text-accent-700 mb-4">
                 <Check size={24} />
               </div>
               <p className="text-base text-slate-700 leading-relaxed mb-6">{m.thanks}</p>
               <button
                 onClick={onClose}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-accent-700 text-white text-sm font-medium hover:bg-accent-800 transition-colors shadow-navy"
               >
                 {m.close}
               </button>
@@ -284,7 +284,7 @@ function ContactModal({ open, onClose }: ContactModalProps) {
               <button
                 type="submit"
                 disabled={status === 'submitting' || !form.consent}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-accent-700 text-white text-sm font-medium hover:bg-accent-800 transition-colors shadow-navy disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === 'submitting' ? (
                   <>
@@ -348,11 +348,11 @@ function App() {
     return (
       <div
         key={config.id}
-        className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+        className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-card hover:shadow-soft transition-shadow group"
       >
         <div className="p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-4 flex-wrap">
-            <div className="p-2 rounded-lg bg-accent-50 text-accent-600">
+                      <div className="p-2 rounded-lg bg-accent-50 border border-accent-200 text-accent-700">
               <Icon size={18} />
             </div>
             {project.tags.map((tag) => (
@@ -384,7 +384,7 @@ function App() {
             <ul className="space-y-1.5">
               {project.keyWork.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                  <CheckCircle2 size={13} className="text-accent-500 mt-0.5 shrink-0" />
+                  <CheckCircle2 size={13} className="text-accent-600 mt-0.5 shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -401,7 +401,7 @@ function App() {
               const LinkIcon = link.icon;
               const label = t.links[link.labelKey];
               const className =
-                'inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors';
+                'inline-flex items-center gap-1.5 text-sm font-medium text-accent-700 hover:text-accent-800 transition-colors';
 
               if (link.type === 'internal') {
                 return (
@@ -441,18 +441,18 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-slate-800 font-sans antialiased">
+    <div className="min-h-screen text-slate-800 font-sans antialiased">
       {/* Navbar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100' : 'bg-transparent'
+          scrolled ? 'bg-white/85 backdrop-blur-md shadow-soft border-b border-slate-200/80' : 'bg-transparent'
         }`}
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <button
               onClick={() => scrollTo('hero')}
-              className="text-base font-semibold text-slate-800 tracking-tight hover:text-accent-600 transition-colors"
+              className="text-base font-semibold text-accent-800 tracking-tight hover:text-accent-600 transition-colors"
             >
               Klairs
             </button>
@@ -463,7 +463,7 @@ function App() {
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
                   className={`text-sm font-medium transition-colors ${
-                    activeSection === item.id ? 'text-accent-600' : 'text-slate-500 hover:text-slate-800'
+                    activeSection === item.id ? 'text-accent-700 font-semibold' : 'text-slate-500 hover:text-accent-600'
                   }`}
                 >
                   {item.label}
@@ -485,7 +485,7 @@ function App() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-b border-slate-100 shadow-sm">
+          <div className="md:hidden bg-white/90 border-b border-slate-200/80 shadow-soft backdrop-blur-sm">
             <div className="px-4 py-3 space-y-2">
               {navItems.map((item) => (
                 <button
@@ -493,8 +493,8 @@ function App() {
                   onClick={() => scrollTo(item.id)}
                   className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     activeSection === item.id
-                      ? 'bg-accent-50 text-accent-700'
-                      : 'text-slate-600 hover:bg-slate-50'
+                      ? 'bg-accent-50 text-accent-800 border border-accent-200'
+                      : 'text-slate-600 hover:bg-accent-50/60 hover:text-accent-700'
                   }`}
                 >
                   {item.label}
@@ -507,8 +507,9 @@ function App() {
 
       {/* ─── Hero ─── */}
       <section id="hero" className="relative pt-32 pb-20 md:pt-44 md:pb-32 px-4 sm:px-6 lg:px-8 scroll-mt-16">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-hero-glow" aria-hidden="true" />
         <div className="max-w-3xl mx-auto">
-          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-50 border border-accent-100 text-accent-700 text-sm font-medium">
+          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-50 border border-accent-200 text-accent-800 text-sm font-medium shadow-sm">
             <span>{t.hero.badge[0]}</span>
             <span className="text-accent-300">·</span>
             <span>{t.hero.badge[1]}</span>
@@ -526,14 +527,14 @@ function App() {
           <div className="flex flex-wrap items-center gap-3">
             <button
               onClick={() => setModalOpen(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-700 text-white text-sm font-medium hover:bg-accent-800 transition-colors shadow-navy"
             >
               <Mail size={16} />
               {t.hero.contactMe}
             </button>
             <button
               onClick={() => scrollTo('projects')}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-700 border border-slate-200 text-sm font-medium hover:bg-slate-50 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/90 text-slate-700 border border-slate-300/80 text-sm font-medium hover:bg-slate-100/80 transition-colors shadow-sm"
             >
               <Eye size={16} />
               {t.hero.viewProjects}
@@ -545,7 +546,7 @@ function App() {
               href="https://github.com/Ngamei"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-slate-600 transition-colors"
+              className="flex items-center gap-1.5 text-accent-700 hover:text-accent-600 transition-colors"
             >
               <Github size={14} />
               {t.hero.github}
@@ -554,14 +555,14 @@ function App() {
               href="https://www.linkedin.com/in/klairshr/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-slate-600 transition-colors"
+              className="flex items-center gap-1.5 text-accent-700 hover:text-accent-600 transition-colors"
             >
               <Linkedin size={14} />
               {t.hero.linkedin}
             </a>
             <a
               href="mailto:ngamei2912@gmail.com"
-              className="flex items-center gap-1.5 hover:text-slate-600 transition-colors"
+              className="flex items-center gap-1.5 text-accent-700 hover:text-accent-600 transition-colors"
             >
               <Mail size={14} />
               {t.hero.email}
@@ -574,7 +575,7 @@ function App() {
       <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
           <div className="mb-3">
-            <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.about.eyebrow}</span>
+            <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">{t.about.eyebrow}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-12 tracking-tight">{t.about.title}</h2>
 
@@ -598,7 +599,7 @@ function App() {
                 <ul className="space-y-2">
                   {t.about.specializations.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                      <CheckCircle2 size={14} className="text-accent-500 mt-0.5 shrink-0" />
+                      <CheckCircle2 size={14} className="text-accent-600 mt-0.5 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -611,7 +612,7 @@ function App() {
                   {t.about.industries.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-full bg-accent-50 border border-accent-100 text-accent-700 text-xs font-medium"
+                      className="px-3 py-1 rounded-full bg-accent-50 border border-accent-200 text-accent-800 text-xs font-medium"
                     >
                       {tag}
                     </span>
@@ -619,7 +620,7 @@ function App() {
                 </div>
               </div>
 
-              <blockquote className="bg-slate-50 rounded-2xl border border-slate-200 p-6 shadow-sm">
+              <blockquote className="bg-white/75 rounded-2xl border border-slate-200/90 p-6 shadow-card backdrop-blur-sm">
                 <p className="text-sm text-slate-700 leading-relaxed italic">{t.about.quote}</p>
               </blockquote>
             </div>
@@ -628,10 +629,10 @@ function App() {
       </section>
 
       {/* ─── What I Do ─── */}
-      <section id="work" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16 bg-slate-50/50">
+      <section id="work" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16 bg-slate-100/45">
         <div className="max-w-5xl mx-auto">
           <div className="mb-3">
-            <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.work.eyebrow}</span>
+            <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">{t.work.eyebrow}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-12 tracking-tight">{t.work.title}</h2>
 
@@ -641,7 +642,7 @@ function App() {
               const Icon = icons[i];
               return (
                 <div key={card.title} className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="p-2.5 rounded-xl bg-accent-50 text-accent-600 w-fit mb-5">
+                  <div className="p-2.5 rounded-xl bg-accent-50 border border-accent-200 text-accent-700 w-fit mb-5">
                     <Icon size={22} />
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">{card.title}</h3>
@@ -657,14 +658,14 @@ function App() {
       <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
           <div className="mb-3">
-            <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.projects.eyebrow}</span>
+            <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">{t.projects.eyebrow}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-16 tracking-tight">{t.projects.title}</h2>
 
           <div className="space-y-20">
             <div>
               <div className="mb-8">
-                <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">
+                <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">
                   {t.projects.subsections.featured.eyebrow}
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 mb-3 tracking-tight">
@@ -677,7 +678,7 @@ function App() {
 
             <div>
               <div className="mb-8">
-                <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">
+                <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">
                   {t.projects.subsections.automation.eyebrow}
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 mb-3 tracking-tight">
@@ -690,7 +691,7 @@ function App() {
 
             <div>
               <div className="mb-8">
-                <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">
+                <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">
                   {t.projects.subsections.concepts.eyebrow}
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 mb-3 tracking-tight">
@@ -705,14 +706,31 @@ function App() {
                   return (
                     <div
                       key={config.id}
-                      className="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-md transition-shadow"
+                      className="bg-white/90 rounded-2xl border border-slate-200/90 p-7 shadow-card hover:shadow-soft transition-shadow flex flex-col backdrop-blur-sm"
                     >
-                      <div className="p-2.5 rounded-xl bg-accent-50 text-accent-600 w-fit mb-5">
+                      <div className="p-2.5 rounded-xl bg-accent-50 border border-accent-200 text-accent-700 w-fit mb-5">
                         <Icon size={22} />
                       </div>
                       <h4 className="text-lg font-bold text-slate-900 mb-1">{concept.title}</h4>
                       <p className="text-sm text-slate-500 mb-4">{concept.subtitle}</p>
                       <p className="text-sm text-slate-600 leading-relaxed">{concept.description}</p>
+                      {config.links && config.links.length > 0 && (
+                        <div className="mt-auto pt-5 border-t border-slate-100 flex items-center gap-4 flex-wrap">
+                          {config.links.map((link) => {
+                            const LinkIcon = link.icon;
+                            return (
+                              <Link
+                                key={link.labelKey}
+                                to={link.to}
+                                className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
+                              >
+                                <LinkIcon size={14} />
+                                {t.links[link.labelKey]}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -726,7 +744,7 @@ function App() {
       <section id="evidence" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
           <div className="mb-3">
-            <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.evidence.eyebrow}</span>
+            <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">{t.evidence.eyebrow}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight">{t.evidence.title}</h2>
           <p className="text-slate-500 mb-12 max-w-xl">{t.evidence.description}</p>
@@ -738,10 +756,10 @@ function App() {
               return (
                 <div
                   key={config.id}
-                  className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                  className="bg-white/90 rounded-2xl border border-slate-200/90 p-6 shadow-card hover:shadow-soft transition-shadow flex flex-col backdrop-blur-sm"
                 >
                   <div className="flex items-start gap-3 mb-3">
-                    <div className="p-2 rounded-lg bg-accent-50 text-accent-600 shrink-0">
+                    <div className="p-2 rounded-lg bg-accent-50 border border-accent-200 text-accent-700 shrink-0">
                       <Icon size={18} />
                     </div>
                     <div>
@@ -778,10 +796,10 @@ function App() {
       </section>
 
       {/* ─── Tech Skills & Tools ─── */}
-      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16 bg-slate-50/50">
+      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16 bg-slate-100/45">
         <div className="max-w-5xl mx-auto">
           <div className="mb-3">
-            <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.skills.eyebrow}</span>
+            <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">{t.skills.eyebrow}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4 tracking-tight">{t.skills.title}</h2>
           <p className="text-slate-500 mb-12 max-w-xl">{t.skills.description}</p>
@@ -792,7 +810,7 @@ function App() {
               return (
                 <div
                   key={id}
-                  className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow"
+                  className="bg-white/90 rounded-2xl border border-slate-200/90 p-6 shadow-card hover:shadow-soft transition-shadow backdrop-blur-sm"
                 >
                   <h3 className="text-base font-bold text-slate-900 mb-3">{group.title}</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">{group.items}</p>
@@ -807,7 +825,7 @@ function App() {
       <section id="outcomes" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16">
         <div className="max-w-5xl mx-auto">
           <div className="mb-3">
-            <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.outcomes.eyebrow}</span>
+            <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">{t.outcomes.eyebrow}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-12 tracking-tight">{t.outcomes.title}</h2>
 
@@ -818,7 +836,7 @@ function App() {
                 className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="p-1.5 rounded-lg bg-accent-50 text-accent-600">
+                  <div className="p-1.5 rounded-lg bg-accent-50 border border-accent-200 text-accent-700">
                     {index === 1 ? <Target size={16} /> : <Award size={16} />}
                   </div>
                   {index === 1 && (
@@ -833,10 +851,10 @@ function App() {
       </section>
 
       {/* ─── How I Work ─── */}
-      <section id="approach" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16 bg-slate-50/50">
+      <section id="approach" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16 bg-slate-100/45">
         <div className="max-w-3xl mx-auto">
           <div className="mb-3">
-            <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.approach.eyebrow}</span>
+            <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">{t.approach.eyebrow}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-8 tracking-tight">{t.approach.title}</h2>
 
@@ -846,7 +864,7 @@ function App() {
             <div className="grid sm:grid-cols-2 gap-3">
               {t.approach.items.map((item) => (
                 <div key={item} className="flex items-start gap-2 text-sm text-slate-700">
-                  <CheckCircle2 size={14} className="text-accent-500 mt-0.5 shrink-0" />
+                  <CheckCircle2 size={14} className="text-accent-600 mt-0.5 shrink-0" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -859,7 +877,7 @@ function App() {
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16">
         <div className="max-w-2xl mx-auto text-center">
           <div className="mb-3">
-            <span className="text-sm font-semibold text-accent-600 uppercase tracking-wider">{t.contact.eyebrow}</span>
+            <span className="text-sm font-semibold text-accent-700 uppercase tracking-wider">{t.contact.eyebrow}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 tracking-tight">{t.contact.title}</h2>
           <p className="text-base text-slate-600 leading-relaxed mb-10">{t.contact.description}</p>
@@ -867,14 +885,14 @@ function App() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={() => setModalOpen(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-700 text-white text-sm font-medium hover:bg-accent-800 transition-colors shadow-navy"
             >
               <Send size={16} />
               {t.contact.contactMe}
             </button>
             <a
               href="mailto:ngamei2912@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-700 border border-slate-200 text-sm font-medium hover:bg-slate-50 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/90 text-slate-700 border border-slate-300/80 text-sm font-medium hover:bg-slate-100/80 transition-colors shadow-sm"
             >
               <Mail size={16} />
               {t.contact.email}
@@ -883,7 +901,7 @@ function App() {
               href="https://www.linkedin.com/in/klairshr/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-slate-700 border border-slate-200 text-sm font-medium hover:bg-slate-50 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/90 text-slate-700 border border-slate-300/80 text-sm font-medium hover:bg-slate-100/80 transition-colors shadow-sm"
             >
               <Linkedin size={16} />
               {t.contact.linkedin}
@@ -895,7 +913,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${t.contact.scanPortfolioTitle} — ${t.contact.scanPortfolioCaption}`}
-            className="mt-12 mx-auto block w-full max-w-xs bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow"
+            className="mt-12 mx-auto block w-full max-w-xs bg-white/90 rounded-2xl border border-slate-200/90 p-6 sm:p-7 shadow-card hover:shadow-soft transition-shadow backdrop-blur-sm"
           >
             <h3 className="text-base font-bold text-slate-900 text-center mb-5">{t.contact.scanPortfolioTitle}</h3>
             <div className="flex justify-center p-4 rounded-xl bg-slate-50 border border-slate-100">
@@ -903,8 +921,8 @@ function App() {
                 value={PORTFOLIO_URL}
                 size={148}
                 level="M"
-                bgColor="#f8fafc"
-                fgColor="#0f172a"
+                bgColor="#f0f2f5"
+                fgColor="#121820"
                 className="h-auto w-full max-w-[148px]"
               />
             </div>
@@ -914,7 +932,7 @@ function App() {
       </section>
 
       {/* ─── Footer ─── */}
-      <footer className="py-8 px-4 border-t border-slate-100 bg-white">
+      <footer className="py-8 px-4 border-t border-slate-200/80 bg-white/70 backdrop-blur-sm">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-slate-400">&copy; {new Date().getFullYear()} Klairs. {t.footer.rights}</p>
           <div className="flex items-center gap-5">

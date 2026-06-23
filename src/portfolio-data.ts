@@ -1,8 +1,9 @@
 import type { LucideIcon } from 'lucide-react';
-import { Bot, Users, Zap, Github, Play, Globe, FileText, Lightbulb, Heart, Mail } from 'lucide-react';
+import { Bot, Users, Zap, Github, Play, Globe, FileText, Lightbulb, Heart, Mail, Target } from 'lucide-react';
 
 export type ExternalLinkKey = 'github' | 'watchDemo' | 'n8nWorkspace' | 'liveSite';
-export type InternalLinkKey = 'viewCaseStudy';
+export type InternalLinkKey = 'viewCaseStudy' | 'useCaseOutcome';
+export type ConceptLinkKey = 'viewConcept' | 'mvpRoadmap';
 
 export type ProjectLinkConfig =
   | { type: 'external'; labelKey: ExternalLinkKey; href: string; icon: LucideIcon }
@@ -17,6 +18,7 @@ export interface ProjectConfig {
 export interface ConceptConfig {
   id: 'pmAssistance' | 'risenMatch';
   icon: LucideIcon;
+  links?: { type: 'internal'; labelKey: ConceptLinkKey; to: string; icon: LucideIcon }[];
 }
 
 export interface EvidenceConfig {
@@ -56,6 +58,12 @@ const projectConfigsById: Record<ProjectConfig['id'], ProjectConfig> = {
         href: 'https://app.guidde.com/playbooks/playlist/bJf686sP6H9wSqw9x2W7WG?origin=zoab0ogvHsgFE4oEVUArPm8Tyqo1&active=0',
         icon: Play,
       },
+      {
+        type: 'internal',
+        labelKey: 'useCaseOutcome',
+        to: '/case-studies/broot-crm-sync',
+        icon: FileText,
+      },
       { type: 'external', labelKey: 'n8nWorkspace', href: 'https://ngamei2912.app.n8n.cloud/', icon: Globe },
     ],
   },
@@ -73,7 +81,14 @@ export const automationProjects: ProjectConfig[] = [
 
 export const conceptConfigs: ConceptConfig[] = [
   { id: 'pmAssistance', icon: Lightbulb },
-  { id: 'risenMatch', icon: Heart },
+  {
+    id: 'risenMatch',
+    icon: Heart,
+    links: [
+      { type: 'internal', labelKey: 'viewConcept', to: '/concepts/risen-match', icon: FileText },
+      { type: 'internal', labelKey: 'mvpRoadmap', to: '/concepts/risen-match/roadmap', icon: Target },
+    ],
+  },
 ];
 
 export const evidenceConfigs: EvidenceConfig[] = [

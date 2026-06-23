@@ -2,8 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply text-slate-800 antialiased;
+    background-color: #f6f7f9;
+    background-image:
+      radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 255, 255, 0.95), transparent 55%),
+      linear-gradient(180deg, #ffffff 0%, #f4f6f8 42%, #eceff3 100%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply bg-white/90 border border-slate-200/90 shadow-card backdrop-blur-sm;
+  }
+
+  .surface-muted {
+    @apply bg-slate-100/55 border border-slate-200/80;
+  }
+
+  .eyebrow-label {
+    @apply text-sm font-semibold text-accent-700 uppercase tracking-wider;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-700 text-white text-sm font-medium hover:bg-accent-800 transition-colors shadow-navy;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/90 text-slate-700 border border-slate-300/80 text-sm font-medium hover:bg-slate-50 transition-colors;
+  }
+}
+
 /* Hide Bolt hosting badge when deployed from Bolt */
-a[href*="bolt.new"],
+a[href*='bolt.new'],
 [data-bolt-badge],
 .bolt-badge,
 #bolt-badge {

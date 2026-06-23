@@ -126,6 +126,9 @@ export interface TranslationContent {
     viewRepository: string;
     openWorkspace: string;
     viewCaseStudy: string;
+    useCaseOutcome: string;
+    viewConcept: string;
+    mvpRoadmap: string;
     liveSite: string;
   };
   modal: {
@@ -248,12 +251,11 @@ const en: TranslationContent = {
           'Built a lightweight lead capture workflow that saves portfolio inquiries to Google Sheets, sends owner notifications, and sends visitor confirmation emails.',
         role: 'Product owner, workflow designer, Google Apps Script developer, and full-stack implementer.',
         keyWork: [
-          'Created Klairs Portfolio Leads Google Sheet with timestamp, contact fields, and email delivery status columns',
-          'Built Google Apps Script Web App with doGet(), doPost(), validation, and JSON handling',
-          'Connected the portfolio contact form using a no-cors POST pattern to the Apps Script endpoint',
-          'Moved the endpoint into VITE_GOOGLE_SCRIPT_URL for Vercel deployment',
-          'Deployed the portfolio on Vercel from GitHub with a custom Cloudflare subdomain',
-          'Added owner notification and visitor confirmation emails with delivery status tracking',
+          'Turned the portfolio contact form into a simple lead capture workflow',
+          'Saved every inquiry to Google Sheets for tracking and follow-up',
+          'Automated owner notifications and visitor confirmation emails',
+          'Deployed the live portfolio with custom domain and hosting setup',
+          'Designed the workflow to extend later into CRM or n8n automation',
         ],
         tech: 'Vite, React, TypeScript, Google Apps Script, Google Sheets, Gmail, Vercel, Cloudflare DNS, GitHub',
         outcome:
@@ -280,9 +282,9 @@ const en: TranslationContent = {
       broot: {
         tags: ['Customer Success', 'Automation', 'CRM', 'QA'],
         title: 'Broot → CRM Sync Workflows',
-        subtitle: 'Webhook and CRM automation testing',
+        subtitle: 'Event lead capture, follow-up automation, and multi-CRM sync',
         summary:
-          'End-to-end CRM automation work connecting Broot with n8n and multiple CRM platforms, including webhook configuration, field mapping, integration testing, and operational documentation.',
+          'End-to-end automation connecting Broot lead capture with n8n routing, Hot/Warm/Cold follow-up logic, and CRM sync across HubSpot, Zoho CRM, and Streak CRM.',
         role: 'Automation workflow designer, integration tester, CRM setup owner, and documentation lead.',
         keyWork: [
           'Built and tested Broot → n8n → HubSpot CRM sync flows',
@@ -290,7 +292,7 @@ const en: TranslationContent = {
           'Documented webhook endpoint configuration, headers, and Basic Auth setup',
           'Mapped request body fields, nested CRM fields, and dropdown values',
           'Created Guidde walkthrough demos and operational SOPs',
-          'Validated edge cases across contact creation and enrichment workflows',
+          'Validated Hot, Warm, and Cold lead-tag routing across follow-up and CRM sync paths',
         ],
         tech: 'n8n, Zapier, HubSpot CRM, Zoho CRM, Streak CRM, webhooks, Postman, RequestBin, Pipedream, JSON, API troubleshooting, Guidde',
         outcome: 'Working automation demos, validated CRM sync flows, and reusable webhook integration documentation',
@@ -328,10 +330,10 @@ const en: TranslationContent = {
           'A personal AI workflow concept designed to convert merchant issues, onboarding friction, payment setup problems, dashboard UX gaps, support tickets, and product feedback into structured PM outputs such as requirements, discovery questions, QA scenarios, prioritization notes, stakeholder summaries, and engineering handoff.',
       },
       risenMatch: {
-        title: 'RisenMatch',
-        subtitle: 'Pilates application platform',
+        title: 'Rise-n-Match',
+        subtitle: 'Pilates booking & studio matching marketplace',
         description:
-          'A Pilates-focused application platform concept that connects Pilates instructors, studios, and clients through profile discovery, booking flows, instructor/studio matching, onboarding, scheduling, and service search.',
+          'A centralized Pilates marketplace concept that helps users discover studios, get matched to the right class, and book in one place—while helping studios fill off-peak beds with higher-intent leads.',
       },
     },
   },
@@ -479,6 +481,9 @@ const en: TranslationContent = {
     viewRepository: 'View Repository',
     openWorkspace: 'Open Workspace',
     viewCaseStudy: 'View Case Study',
+    useCaseOutcome: 'Use Case & Outcome',
+    viewConcept: 'Concept',
+    mvpRoadmap: 'MVP Roadmap',
     liveSite: 'Live Site',
   },
   modal: {
@@ -609,12 +614,11 @@ const vi: TranslationContent = {
           'Xây dựng quy trình thu lead nhẹ lưu yêu cầu liên hệ vào Google Sheets, gửi thông báo cho chủ sở hữu và email xác nhận cho khách truy cập.',
         role: 'Product owner, thiết kế quy trình, phát triển Google Apps Script và triển khai full-stack.',
         keyWork: [
-          'Tạo Google Sheet Klairs Portfolio Leads với timestamp, trường liên hệ và cột trạng thái email',
-          'Xây dựng Google Apps Script Web App với doGet(), doPost(), validation và xử lý JSON',
-          'Kết nối form liên hệ portfolio bằng POST no-cors tới endpoint Apps Script',
-          'Chuyển endpoint vào VITE_GOOGLE_SCRIPT_URL cho triển khai Vercel',
-          'Triển khai portfolio trên Vercel từ GitHub với subdomain Cloudflare tùy chỉnh',
-          'Thêm email thông báo chủ sở hữu, email xác nhận khách và theo dõi trạng thái gửi',
+          'Biến form liên hệ portfolio thành quy trình thu lead đơn giản',
+          'Lưu mọi yêu cầu vào Google Sheets để theo dõi và follow-up',
+          'Tự động hóa email thông báo cho chủ sở hữu và xác nhận cho khách',
+          'Triển khai portfolio live với tên miền tùy chỉnh và hosting',
+          'Thiết kế quy trình sẵn sàng mở rộng sang CRM hoặc n8n sau này',
         ],
         tech: 'Vite, React, TypeScript, Google Apps Script, Google Sheets, Gmail, Vercel, Cloudflare DNS, GitHub',
         outcome:
@@ -641,9 +645,9 @@ const vi: TranslationContent = {
       broot: {
         tags: ['Customer Success', 'Tự động hóa', 'CRM', 'QA'],
         title: 'Broot → CRM Sync Workflows',
-        subtitle: 'Kiểm thử webhook và tự động hóa CRM',
+        subtitle: 'Thu lead sự kiện, tự động hóa follow-up và đồng bộ đa CRM',
         summary:
-          'Công việc tự động hóa CRM end-to-end kết nối Broot với n8n và nhiều nền tảng CRM, bao gồm cấu hình webhook, ánh xạ trường, kiểm thử tích hợp và tài liệu vận hành.',
+          'Tự động hóa end-to-end kết nối thu lead Broot với định tuyến n8n, logic follow-up Hot/Warm/Cold và đồng bộ CRM qua HubSpot, Zoho CRM và Streak CRM.',
         role: 'Thiết kế quy trình tự động hóa, kiểm thử tích hợp, chủ sở hữu thiết lập CRM và trưởng nhóm tài liệu.',
         keyWork: [
           'Xây dựng và kiểm thử luồng đồng bộ Broot → n8n → HubSpot CRM',
@@ -651,7 +655,7 @@ const vi: TranslationContent = {
           'Ghi nhận cấu hình endpoint webhook, headers và Basic Auth',
           'Ánh xạ request body, trường CRM lồng nhau và giá trị dropdown',
           'Tạo demo Guidde walkthrough và SOP vận hành',
-          'Xác thực edge case trong tạo contact và enrichment',
+          'Xác thực định tuyến lead tag Hot, Warm và Cold qua follow-up và đồng bộ CRM',
         ],
         tech: 'n8n, Zapier, HubSpot CRM, Zoho CRM, Streak CRM, webhooks, Postman, RequestBin, Pipedream, JSON, API troubleshooting, Guidde',
         outcome: 'Demo tự động hóa hoạt động, luồng đồng bộ CRM đã xác thực và tài liệu tích hợp webhook tái sử dụng được',
@@ -689,10 +693,10 @@ const vi: TranslationContent = {
           'Khái niệm quy trình AI cá nhân chuyển đổi vấn đề merchant, ma sát onboarding, lỗi thiết lập thanh toán, khoảng trống UX dashboard, ticket hỗ trợ và phản hồi sản phẩm thành đầu ra PM có cấu trúc như yêu cầu, câu hỏi discovery, kịch bản QA, ghi chú ưu tiên, tóm tắt stakeholder và handoff kỹ thuật.',
       },
       risenMatch: {
-        title: 'RisenMatch',
-        subtitle: 'Nền tảng ứng dụng Pilates',
+        title: 'Rise-n-Match',
+        subtitle: 'Marketplace đặt lịch Pilates & ghép studio',
         description:
-          'Khái niệm nền tảng ứng dụng tập trung Pilates kết nối huấn luyện viên, studio và khách hàng qua khám phá hồ sơ, luồng đặt lịch, ghép instructor/studio, onboarding, lịch trình và tìm kiếm dịch vụ.',
+          'Khái niệm marketplace Pilates tập trung giúp người dùng khám phá studio, được ghép đúng lớp học và đặt chỗ một nơi—đồng thời giúp studio lấp đầy giường off-peak với lead có ý định cao hơn.',
       },
     },
   },
@@ -840,6 +844,9 @@ const vi: TranslationContent = {
     viewRepository: 'Xem kho mã',
     openWorkspace: 'Mở workspace',
     viewCaseStudy: 'Xem Case Study',
+    useCaseOutcome: 'Use Case & Kết quả',
+    viewConcept: 'Concept',
+    mvpRoadmap: 'MVP Roadmap',
     liveSite: 'Trang live',
   },
   modal: {
@@ -969,12 +976,11 @@ const ko: TranslationContent = {
           '포트폴리오 문의를 Google Sheets에 저장하고, 소유자 알림과 방문자 확인 이메일을 보내는 경량 리드 캡처 워크플로를 구축했습니다.',
         role: '프로덕트 오너, 워크플로 설계자, Google Apps Script 개발자, 풀스택 구현 리드.',
         keyWork: [
-          '타임스탬프, 연락처 필드, 이메일 전송 상태 열이 있는 Klairs Portfolio Leads Google Sheet 생성',
-          'doGet(), doPost(), 검증, JSON 처리가 포함된 Google Apps Script Web App 구축',
-          'no-cors POST 패턴으로 포트폴리오 연락 폼을 Apps Script 엔드포인트에 연결',
-          'Vercel 배포를 위해 엔드포인트를 VITE_GOOGLE_SCRIPT_URL로 이동',
-          'Cloudflare 커스텀 서브도메인으로 GitHub에서 Vercel에 포트폴리오 배포',
-          '소유자 알림 및 방문자 확인 이메일과 전송 상태 추적 추가',
+          '포트폴리오 연락 폼을 간단한 리드 캡처 워크플로로 전환',
+          '모든 문의를 Google Sheets에 저장해 추적 및 후속 조치 지원',
+          '소유자 알림과 방문자 확인 이메일 자동화',
+          '커스텀 도메인과 호스팅으로 라이브 포트폴리오 배포',
+          '이후 CRM 또는 n8n 자동화로 확장 가능하도록 워크플로 설계',
         ],
         tech: 'Vite, React, TypeScript, Google Apps Script, Google Sheets, Gmail, Vercel, Cloudflare DNS, GitHub',
         outcome:
@@ -1001,9 +1007,9 @@ const ko: TranslationContent = {
       broot: {
         tags: ['Customer Success', '자동화', 'CRM', 'QA'],
         title: 'Broot → CRM Sync Workflows',
-        subtitle: '웹훅 및 CRM 자동화 테스트',
+        subtitle: '이벤트 리드 캡처, 후속 자동화, 멀티 CRM 동기화',
         summary:
-          '웹훅 구성, 필드 매핑, 통합 테스트, 운영 문서를 포함하여 Broot를 n8n 및 여러 CRM 플랫폼과 연결하는 엔드투엔드 CRM 자동화 작업입니다.',
+          'Broot 리드 캡처를 n8n 라우팅, Hot/Warm/Cold 후속 로직, HubSpot·Zoho CRM·Streak CRM 동기화와 연결하는 엔드투엔드 자동화입니다.',
         role: '자동화 워크플로 설계자, 통합 테스터, CRM 설정 담당자, 문서화 리드.',
         keyWork: [
           'Broot → n8n → HubSpot CRM 동기화 흐름 구축 및 테스트',
@@ -1011,7 +1017,7 @@ const ko: TranslationContent = {
           '웹훅 엔드포인트 구성, 헤더, Basic Auth 설정 문서화',
           '요청 본문 필드, 중첩 CRM 필드, 드롭다운 값 매핑',
           'Guidde 워크스루 데모 및 운영 SOP 생성',
-          '연락처 생성 및 enrichment 워크플로의 엣지 케이스 검증',
+          'Hot, Warm, Cold 리드 태그 라우팅을 follow-up 및 CRM 동기화 경로에서 검증',
         ],
         tech: 'n8n, Zapier, HubSpot CRM, Zoho CRM, Streak CRM, webhooks, Postman, RequestBin, Pipedream, JSON, API troubleshooting, Guidde',
         outcome: '작동하는 자동화 데모, 검증된 CRM 동기화 흐름, 재사용 가능한 웹훅 통합 문서',
@@ -1049,10 +1055,10 @@ const ko: TranslationContent = {
           '머천트 이슈, 온보딩 마찰, 결제 설정 문제, 대시보드 UX 공백, 지원 티켓, 제품 피드백을 요구사항, 발견 질문, QA 시나리오, 우선순위 노트, 이해관계자 요약, 엔지니어링 핸드오프와 같은 구조화된 PM 산출물로 전환하는 개인 AI 워크플로 컨셉입니다.',
       },
       risenMatch: {
-        title: 'RisenMatch',
-        subtitle: '필라테스 애플리케이션 플랫폼',
+        title: 'Rise-n-Match',
+        subtitle: '필라테스 예약 및 스튜디오 매칭 마켓플레이스',
         description:
-          '프로필 발견, 예약 흐름, 강사/스튜디오 매칭, 온보딩, 스케줄링, 서비스 검색을 통해 필라테스 강사, 스튜디오, 클라이언트를 연결하는 필라테스 중심 애플리케이션 플랫폼 컨셉입니다.',
+          '사용자가 스튜디오를 발견하고 적합한 수업에 매칭되어 한곳에서 예약할 수 있게 하며, 스튜디오가 오프피크 베드를 높은 의도의 리드로 채울 수 있도록 돕는 중앙화된 필라테스 마켓플레이스 컨셉입니다.',
       },
     },
   },
@@ -1200,6 +1206,9 @@ const ko: TranslationContent = {
     viewRepository: '저장소 보기',
     openWorkspace: '워크스페이스 열기',
     viewCaseStudy: '케이스 스터디 보기',
+    useCaseOutcome: 'Use Case & 결과',
+    viewConcept: 'Concept',
+    mvpRoadmap: 'MVP Roadmap',
     liveSite: '라이브 사이트',
   },
   modal: {

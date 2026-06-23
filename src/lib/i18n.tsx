@@ -58,7 +58,7 @@ export function LanguageSelector({ compact = false, className = '' }: LanguageSe
 
   return (
     <div
-      className={`inline-flex items-center rounded-lg border border-slate-200 bg-white p-0.5 shadow-sm ${className}`}
+      className={`inline-flex items-center rounded-lg border border-slate-300/80 bg-white/85 p-0.5 shadow-sm backdrop-blur-sm ${className}`}
       role="group"
       aria-label="Language selector"
     >
@@ -70,8 +70,8 @@ export function LanguageSelector({ compact = false, className = '' }: LanguageSe
           title={lang.label}
           className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors ${
             language === lang.code
-              ? 'bg-accent-50 text-accent-700 border border-accent-100'
-              : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50 border border-transparent'
+              ? 'bg-accent-50 text-accent-800 border border-accent-200'
+              : 'text-slate-500 hover:text-accent-700 hover:bg-accent-50/70 border border-transparent'
           }`}
         >
           {compact ? lang.compact : lang.compact}
