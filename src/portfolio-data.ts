@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Bot, Users, Zap, Github, Play, Globe, FileText, Lightbulb, Heart, Mail, Target } from 'lucide-react';
+import { Bot, Users, Zap, Github, Play, Globe, FileText, Lightbulb, Heart, Mail, Target, Gem } from 'lucide-react';
 
 export type ExternalLinkKey = 'github' | 'watchDemo' | 'n8nWorkspace' | 'liveSite';
 export type InternalLinkKey = 'viewCaseStudy' | 'useCaseOutcome';
@@ -10,7 +10,7 @@ export type ProjectLinkConfig =
   | { type: 'internal'; labelKey: InternalLinkKey; to: string; icon: LucideIcon };
 
 export interface ProjectConfig {
-  id: 'contactAutomation' | 'helloClever' | 'broot' | 'crewAnywhere';
+  id: 'contactAutomation' | 'helloClever' | 'broot' | 'crewAnywhere' | 'anhNgaDiamondBrandHub';
   icon: LucideIcon;
   links: ProjectLinkConfig[];
 }
@@ -29,6 +29,11 @@ export interface EvidenceConfig {
 }
 
 const projectConfigsById: Record<ProjectConfig['id'], ProjectConfig> = {
+  anhNgaDiamondBrandHub: {
+    id: 'anhNgaDiamondBrandHub',
+    icon: Gem,
+    links: [],
+  },
   helloClever: {
     id: 'helloClever',
     icon: Bot,
@@ -70,6 +75,7 @@ const projectConfigsById: Record<ProjectConfig['id'], ProjectConfig> = {
 };
 
 export const featuredProductProjects: ProjectConfig[] = [
+  projectConfigsById.anhNgaDiamondBrandHub,
   projectConfigsById.helloClever,
   projectConfigsById.crewAnywhere,
 ];

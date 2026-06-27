@@ -396,6 +396,7 @@ function App() {
             <p className="text-sm text-slate-600 leading-relaxed">{project.tech}</p>
           </div>
 
+          {config.links.length > 0 && (
           <div className="flex items-center gap-4 flex-wrap pt-4 border-t border-slate-100">
             {config.links.map((link) => {
               const LinkIcon = link.icon;
@@ -427,6 +428,7 @@ function App() {
               );
             })}
           </div>
+          )}
         </div>
       </div>
     );

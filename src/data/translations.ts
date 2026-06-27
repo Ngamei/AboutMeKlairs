@@ -261,6 +261,25 @@ const en: TranslationContent = {
         outcome:
           'Lightweight CRM-style lead capture workflow that saves inquiries, notifies me, confirms with visitors, and is ready for n8n or CRM extension',
       },
+      anhNgaDiamondBrandHub: {
+        tags: ['Business OS', 'Product Thinking', 'Internal Tools', 'Brand Operations', 'AI-Assisted Build', 'Supabase', 'Next.js'],
+        title: 'ANH NGA DIAMOND Brand Hub',
+        subtitle: 'Private source-of-truth hub for multi-brand jewelry operations',
+        summary:
+          'A private source-of-truth hub for ANH NGA DIAMOND that organizes brand strategy, launch planning, decisions, workflows, team responsibilities, and brand portals into a clean internal workspace.',
+        role: 'Product owner, information architect, workflow designer, and AI-assisted builder.',
+        keyWork: [
+          'Consolidated scattered brand knowledge from Markdown docs, planning files, and AI conversations into one private workspace',
+          'Defined MVP scope that separates source-of-truth reference from task execution in Zoho, Forms, and Calendar',
+          'Structured an 8-phase launch roadmap alongside brand portals for Origin, Clair, and Memoir',
+          'Designed a calm, document-first internal workspace with sidebar navigation, decision log, and team responsibilities',
+          'Built authenticated access with Supabase Google OAuth, approved-users allowlist, and admin/viewer roles',
+          'Scoped the hub to stay lightweight — alignment and reference, not CRM, orders, or campaign management',
+        ],
+        tech: 'Next.js App Router, TypeScript, Tailwind CSS, Supabase Auth, Google OAuth, Markdown source files, Claude Code, Cursor AI',
+        outcome:
+          'Milestone B complete: authenticated hub shell with company page, brand portals, roadmap, workflows, decisions, and admin routes',
+      },
       helloClever: {
         tags: ['AI Support', 'Documentation', 'Merchant Experience', 'QA'],
         title: 'Hello Clever Support Engineer AI',
@@ -624,6 +643,25 @@ const vi: TranslationContent = {
         outcome:
           'Quy trình thu lead kiểu CRM nhẹ: lưu yêu cầu, thông báo cho tôi, xác nhận với khách, sẵn sàng mở rộng n8n hoặc CRM',
       },
+      anhNgaDiamondBrandHub: {
+        tags: ['Business OS', 'Tư duy Sản phẩm', 'Công cụ Nội bộ', 'Vận hành Thương hiệu', 'Xây dựng hỗ trợ AI', 'Supabase', 'Next.js'],
+        title: 'ANH NGA DIAMOND Brand Hub',
+        subtitle: 'Hub nguồn sự thật nội bộ cho vận hành đa thương hiệu trang sức',
+        summary:
+          'Hub nguồn sự thật riêng cho ANH NGA DIAMOND, tổ chức chiến lược thương hiệu, kế hoạch ra mắt, quyết định, quy trình, trách nhiệm đội ngũ và cổng thương hiệu trong một workspace nội bộ gọn gàng.',
+        role: 'Product owner, kiến trúc sư thông tin, thiết kế quy trình và người xây dựng hỗ trợ AI.',
+        keyWork: [
+          'Gom kiến thức thương hiệu phân tán từ Markdown, tài liệu kế hoạch và hội thoại AI vào một workspace riêng',
+          'Xác định phạm vi MVP tách nguồn sự thật khỏi thực thi công việc trong Zoho, Forms và Calendar',
+          'Cấu trúc roadmap ra mắt 8 giai đoạn cùng cổng thương hiệu cho Origin, Clair và Memoir',
+          'Thiết kế workspace nội bộ document-first, điều hướng sidebar, nhật ký quyết định và trách nhiệm đội ngũ',
+          'Xây dựng truy cập xác thực với Supabase Google OAuth, allowlist approved_users và vai trò admin/viewer',
+          'Giữ hub nhẹ — căn chỉnh và tham chiếu, không thay CRM, đơn hàng hay quản lý chiến dịch',
+        ],
+        tech: 'Next.js App Router, TypeScript, Tailwind CSS, Supabase Auth, Google OAuth, Markdown source files, Claude Code, Cursor AI',
+        outcome:
+          'Hoàn thành Milestone B: shell hub xác thực với trang công ty, cổng thương hiệu, roadmap, quy trình, quyết định và route admin',
+      },
       helloClever: {
         tags: ['Hỗ trợ AI', 'Tài liệu', 'Trải nghiệm Merchant', 'QA'],
         title: 'Hello Clever Support Engineer AI',
@@ -985,6 +1023,25 @@ const ko: TranslationContent = {
         tech: 'Vite, React, TypeScript, Google Apps Script, Google Sheets, Gmail, Vercel, Cloudflare DNS, GitHub',
         outcome:
           '문의 저장, 알림, 방문자 확인, n8n 또는 CRM 확장 준비가 된 경량 CRM 스타일 리드 캡처 워크플로',
+      },
+      anhNgaDiamondBrandHub: {
+        tags: ['Business OS', '제품 사고', '내부 도구', '브랜드 운영', 'AI 지원 구축', 'Supabase', 'Next.js'],
+        title: 'ANH NGA DIAMOND Brand Hub',
+        subtitle: '멀티 브랜드 주얼리 운영을 위한 비공개 소스 오브 트루스 허브',
+        summary:
+          'ANH NGA DIAMOND를 위한 비공개 소스 오브 트루스 허브로, 브랜드 전략, 런칭 계획, 의사결정, 워크플로, 팀 책임, 브랜드 포털을 깔끔한 내부 워크스페이스에 정리합니다.',
+        role: '프로덕트 오너, 정보 아키텍트, 워크플로 설계자, AI 지원 빌더.',
+        keyWork: [
+          'Markdown 문서, 기획 파일, AI 대화에 흩어진 브랜드 지식을 하나의 비공개 워크스페이스로 통합',
+          'Zoho, Forms, Calendar의 작업 실행과 소스 오브 트루스 참조를 분리하는 MVP 범위 정의',
+          '8단계 런칭 로드맵과 Origin, Clair, Memoir 브랜드 포털 구조화',
+          '사이드바 내비게이션, 의사결정 로그, 팀 책임을 갖춘 차분한 문서 중심 내부 워크스페이스 설계',
+          'Supabase Google OAuth, approved_users 허용 목록, admin/viewer 역할로 인증 접근 구축',
+          'CRM, 주문, 캠페인 관리가 아닌 정렬과 참조에 집중하는 경량 허브로 범위 설정',
+        ],
+        tech: 'Next.js App Router, TypeScript, Tailwind CSS, Supabase Auth, Google OAuth, Markdown source files, Claude Code, Cursor AI',
+        outcome:
+          'Milestone B 완료: 회사 페이지, 브랜드 포털, 로드맵, 워크플로, 의사결정, admin 라우트를 갖춘 인증 허브 셸',
       },
       helloClever: {
         tags: ['AI 지원', '문서화', '머천트 경험', 'QA'],
