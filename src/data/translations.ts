@@ -126,6 +126,7 @@ export interface TranslationContent {
     viewRepository: string;
     openWorkspace: string;
     viewCaseStudy: string;
+    projectNotes: string;
     useCaseOutcome: string;
     viewConcept: string;
     mvpRoadmap: string;
@@ -500,6 +501,7 @@ const en: TranslationContent = {
     viewRepository: 'View Repository',
     openWorkspace: 'Open Workspace',
     viewCaseStudy: 'View Case Study',
+    projectNotes: 'Project Notes',
     useCaseOutcome: 'Use Case & Outcome',
     viewConcept: 'Concept',
     mvpRoadmap: 'MVP Roadmap',
@@ -882,6 +884,7 @@ const vi: TranslationContent = {
     viewRepository: 'Xem kho mã',
     openWorkspace: 'Mở workspace',
     viewCaseStudy: 'Xem Case Study',
+    projectNotes: 'Ghi chú Dự án',
     useCaseOutcome: 'Use Case & Kết quả',
     viewConcept: 'Concept',
     mvpRoadmap: 'MVP Roadmap',
@@ -1263,6 +1266,7 @@ const ko: TranslationContent = {
     viewRepository: '저장소 보기',
     openWorkspace: '워크스페이스 열기',
     viewCaseStudy: '케이스 스터디 보기',
+    projectNotes: '프로젝트 노트',
     useCaseOutcome: 'Use Case & 결과',
     viewConcept: 'Concept',
     mvpRoadmap: 'MVP Roadmap',

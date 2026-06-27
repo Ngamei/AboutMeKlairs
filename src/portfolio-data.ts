@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import { Bot, Users, Zap, Github, Play, Globe, FileText, Lightbulb, Heart, Mail, Target, Gem } from 'lucide-react';
 
 export type ExternalLinkKey = 'github' | 'watchDemo' | 'n8nWorkspace' | 'liveSite';
-export type InternalLinkKey = 'viewCaseStudy' | 'useCaseOutcome';
+export type InternalLinkKey = 'viewCaseStudy' | 'useCaseOutcome' | 'projectNotes';
 export type ConceptLinkKey = 'viewConcept' | 'mvpRoadmap';
 
 export type ProjectLinkConfig =
@@ -32,7 +32,14 @@ const projectConfigsById: Record<ProjectConfig['id'], ProjectConfig> = {
   anhNgaDiamondBrandHub: {
     id: 'anhNgaDiamondBrandHub',
     icon: Gem,
-    links: [],
+    links: [
+      {
+        type: 'internal',
+        labelKey: 'projectNotes',
+        to: '/case-studies/anh-nga-diamond-brand-hub',
+        icon: FileText,
+      },
+    ],
   },
   helloClever: {
     id: 'helloClever',

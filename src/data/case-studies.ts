@@ -169,6 +169,143 @@ export const caseStudies: Record<string, CaseStudyContent> = {
     portfolioSummary:
       'I built a lightweight lead capture and email automation system for my portfolio using Google Apps Script, Google Sheets, Gmail, Vercel, and Cloudflare. When a visitor submits the contact form, the workflow saves the inquiry to Google Sheets, sends me an email notification, sends the visitor a confirmation email, and records email delivery status for tracking. The system is simple, low-cost, and future-ready for CRM or n8n automation.',
   },
+  'anh-nga-diamond-brand-hub': {
+    slug: 'anh-nga-diamond-brand-hub',
+    title: 'ANH NGA DIAMOND Brand Hub',
+    subtitle: 'Private source-of-truth hub · Next.js · Supabase · Markdown',
+    overview: [
+      'ANH NGA DIAMOND Brand Hub is a private internal source-of-truth hub for a multi-brand jewelry business. It organizes brand strategy, launch planning, decisions, workflows, team responsibilities, brand portals, and important links into one clean internal workspace.',
+      'The project is intentionally lightweight. It is not a CRM, order tracker, task management system, campaign tool, HR system, finance system, or public marketing website.',
+      'ANH NGA DIAMOND operates three separate brands: Origin (natural diamond jewelry), Clair (lab-grown diamond jewelry), and Memoir (custom, personal, and milestone jewelry). Origin is the first public-facing launch brand, but Clair and Memoir remain real separate brands with their own documentation and future launch paths.',
+    ],
+    workflow: [
+      'Scattered knowledge (Markdown, Claude, Zoho, Google tools, internal decisions)',
+      '→ Private Hub as source-of-truth and reference',
+      '→ Google OAuth + approved_users allowlist + admin/viewer roles',
+      '→ Dashboard · Company · Brands · Roadmap · Workflows · Decisions · Links · Admin',
+      '→ Brand portals (Origin, Clair, Memoir) hold brand-specific documents',
+      '→ 8-phase business roadmap tracks launch timeline',
+      '→ Claude Code updates Markdown source files (read-only in Hub MVP)',
+      '→ Zoho, Forms, Sheets, Calendar, Meet handle task execution',
+    ],
+    tools: [
+      'Next.js App Router',
+      'TypeScript',
+      'Tailwind CSS',
+      'Supabase Auth',
+      'Google OAuth',
+      'approved_users allowlist',
+      'Markdown source files',
+      'Claude Code',
+      'Cursor AI',
+      'Zoho Projects',
+      'Google Forms · Sheets · Calendar · Meet',
+    ],
+    steps: [
+      {
+        title: '1. Defined the Core Problem',
+        paragraphs: [
+          'Business knowledge was scattered across Markdown files, Claude conversations, planning docs, Zoho Projects, Google Forms, Google Sheets, Google Calendar, Google Meet, and internal decisions.',
+          'The Hub gives the team one place to answer: what is the latest brand truth, what phase are we in, who owns what, what decisions have been made, what workflows to follow, and where the important links are.',
+        ],
+      },
+      {
+        title: '2. Scoped the MVP',
+        paragraphs: ['I defined a clear MVP that stays reference-first and avoids overbuilding.'],
+        bullets: [
+          'Private login-protected access with Supabase Google OAuth',
+          'approved_users allowlist and admin/viewer role model',
+          'Company page, brand portals, 8-phase roadmap, workflows, decision log, important links',
+          'Read-only source-of-truth structure — not CRM, orders, campaigns, HR, or finance',
+        ],
+      },
+      {
+        title: '3. Designed Information Architecture',
+        paragraphs: [
+          'Final Hub structure: Dashboard, Company, Brands (Origin / Clair / Memoir portals), Roadmap, Workflows, Decisions, Important Links, and Admin.',
+          'I separated three layers: the business roadmap (execution timeline), brand portals (per-brand documents and references), and software milestones (how the Hub itself is built).',
+        ],
+        bullets: [
+          'Origin Portal — active launch brand for natural diamond jewelry',
+          'Clair Portal — future-launch workspace for lab-grown diamond jewelry',
+          'Memoir Portal — future-launch workspace for custom and milestone jewelry',
+        ],
+      },
+      {
+        title: '4. Structured the 8-Phase Business Roadmap',
+        paragraphs: ['The roadmap is separate from brand portals and tracks the business launch timeline.'],
+        bullets: [
+          'Brand Foundation → Visual Identity → Social Account Setup',
+          'Website & Inquiry Funnel → Content Bank → Soft Social Launch',
+          'Social Proof Preparation → Partner Outreach',
+        ],
+      },
+      {
+        title: '5. Defined Update Flow and Tool Separation',
+        paragraphs: [
+          'The Hub is read-only for source documents in the MVP. When something marked "To decide" becomes confirmed, the flow is: add the decision to the decisions log, update the affected Markdown file, check related files for ripple effects, and summarize what changed. Updates happen through Claude Code, not an in-app editor.',
+        ],
+        bullets: [
+          'Brand Hub = source of truth and reference',
+          'Claude Code = updates Markdown source files',
+          'Zoho Projects = task execution',
+          'Google Forms / Sheets = inquiry intake and form data',
+          'Google Calendar / Meet = consultation booking and calls',
+        ],
+      },
+      {
+        title: '6. Completed Milestone A — Planning',
+        paragraphs: ['Planning artifacts completed before implementation.'],
+        bullets: [
+          'PRD, Architecture, Database, UI Spec, Product Roadmap, Backlog',
+          'Engineering Decisions, Content Source Map, File Conventions, UI Style Guide',
+        ],
+      },
+      {
+        title: '7. Completed Milestone B — Platform Foundation',
+        paragraphs: ['The authenticated Hub shell is running locally with core routes in place.'],
+        bullets: [
+          'Next.js App Router, TypeScript, Tailwind CSS, Supabase Auth, Google OAuth',
+          'approved_users allowlist, admin role, sidebar shell, protected routes',
+          'ngamei2912@gmail.com logs in as admin with role badge',
+          'Company, Brands, Roadmap, Workflows, Decisions, Important Links, and Admin routes exist',
+          'Workflows page shows read-only reference structure',
+        ],
+      },
+      {
+        title: '8. Next — Milestone C: Knowledge Hub',
+        paragraphs: [
+          'The next step connects real Brand OS Markdown files into the Hub: Markdown rendering, source file manifest, brand OS document rendering, decision log rendering, workflow document rendering, and brand portal document links.',
+        ],
+      },
+    ],
+    finalResult: [
+      'Milestone B is complete. The Hub runs locally with working Google OAuth login, admin access, sidebar navigation, and all core routes implemented as a working shell.',
+      'The information architecture is in place: company context, three brand portals, 8-phase roadmap, workflow references, decision log, and important links — all inside one private workspace.',
+      'The system is intentionally scoped. Reference and alignment live in the Hub; task execution stays in Zoho and Google tools.',
+    ],
+    outcome: {
+      intro: 'This project shows product thinking and practical system design. It demonstrates how I:',
+      bullets: [
+        'Turn scattered business knowledge into a structured system',
+        'Define MVP scope clearly and avoid overbuilding',
+        'Separate reference knowledge from execution tools',
+        'Design internal tools around real team workflows',
+        'Create information architecture for a multi-brand business',
+        'Use Claude Code and AI-assisted planning to move from strategy to implementation',
+      ],
+    },
+    futureImprovements: [
+      'Milestone C — Knowledge Hub: render Brand OS Markdown files inside the Hub',
+      'Searchable Brand OS documents and richer brand portal pages',
+      'Pending decisions dashboard and visual identity library',
+      'Workflow/SOP library, inquiry templates, and partner quote workflow',
+      'Future Business OS modules: finance references, HR/hiring, operating dashboard',
+      'Gradual expansion — structured modules only when the business needs them',
+    ],
+    portfolioSummary:
+      'I designed and built a private Brand Hub for ANH NGA DIAMOND that consolidates brand strategy, launch planning, decisions, workflows, and team responsibilities into one login-protected workspace. The Hub separates an 8-phase business roadmap from dedicated brand portals for Origin, Clair, and Memoir, keeps task execution in Zoho and Google tools, and uses Claude Code for Markdown updates. Milestone B is complete with Supabase auth, role-based access, and a working information architecture shell.',
+  },
 };
 
 export function getCaseStudy(slug: string): CaseStudyContent | undefined {
