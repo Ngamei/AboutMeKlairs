@@ -275,7 +275,7 @@ export const caseStudies: Record<string, CaseStudyContent> = {
       {
         title: '8. Next — Milestone C: Knowledge Hub',
         paragraphs: [
-          'The next step connects real Brand OS Markdown files into the Hub: Markdown rendering, source file manifest, brand OS document rendering, decision log rendering, workflow document rendering, and brand portal document links.',
+          'The next step connects real Brand OS Markdown files into the Hub: Markdown rendering, source file manifest, brand OS document rendering, decision log rendering, workflow document rendering, and brand portal document links. This turns the current authenticated shell into a usable internal knowledge system.',
         ],
       },
     ],
@@ -296,15 +296,18 @@ export const caseStudies: Record<string, CaseStudyContent> = {
       ],
     },
     futureImprovements: [
-      'Milestone C — Knowledge Hub: render Brand OS Markdown files inside the Hub',
-      'Searchable Brand OS documents and richer brand portal pages',
-      'Pending decisions dashboard and visual identity library',
-      'Workflow/SOP library, inquiry templates, and partner quote workflow',
-      'Future Business OS modules: finance references, HR/hiring, operating dashboard',
-      'Gradual expansion — structured modules only when the business needs them',
+      'Long-term direction: evolve from an ANH NGA DIAMOND source-of-truth workspace into a reusable operating template for inquiry-led custom product businesses',
+      'Best fit where customers cannot simply buy from a product page — inquiry, consultation, requirements gathering, quotation, partner coordination, approval, and follow-up',
+      'Examples: custom jewelry, diamond sourcing, wedding rings, tailored fashion, custom furniture, interior design, bespoke gifts, event planning',
+      'Next — Milestone C — Knowledge Hub: render Brand OS Markdown files inside the Hub and turn the authenticated shell into a usable knowledge system',
+      'Future modules after ANH NGA DIAMOND works: inquiry intake reference, customer requirement brief templates, consultation preparation checklist',
+      'Quote request workflow, partner/supplier coordination notes, production readiness checklist, approval and handoff references',
+      'Brand-specific customer communication rules, visual identity and content reference library, decision log and pending decision tracker',
+      'Team onboarding and SOP library — future modules, not MVP features',
+      'Gradual expansion: first solve source-of-truth for ANH NGA DIAMOND, then standardize repeated inquiry-led workflows into reusable modules only when the process is clear enough',
     ],
     portfolioSummary:
-      'I designed and built a private Brand Hub for ANH NGA DIAMOND that consolidates brand strategy, launch planning, decisions, workflows, and team responsibilities into one login-protected workspace. The Hub separates an 8-phase business roadmap from dedicated brand portals for Origin, Clair, and Memoir, keeps task execution in Zoho and Google tools, and uses Claude Code for Markdown updates. Milestone B is complete with Supabase auth, role-based access, and a working information architecture shell.',
+      'I designed and built a private Brand Hub for ANH NGA DIAMOND that consolidates brand strategy, launch planning, decisions, workflows, and team responsibilities into one login-protected workspace. The Hub separates an 8-phase business roadmap from dedicated brand portals for Origin, Clair, and Memoir, keeps task execution in Zoho and Google tools, and uses Claude Code for Markdown updates. Milestone B is complete with Supabase auth, role-based access, and a working information architecture shell. The long-term direction is to evolve this into a reusable operating template for inquiry-led custom product businesses.',
   },
 };
 

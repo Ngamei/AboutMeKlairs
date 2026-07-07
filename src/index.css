@@ -2,47 +2,307 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Steel A Design System ─────────────────────────
+   --ivory:   #F7F3EE  (primary background)
+   --black:   #1C2030  (hero / dark authority surfaces)
+   --navy:    #1C3254  (depth / secondary dark)
+   --accent:  #4A6FA5  (Steel Blue — labels, links, CTAs)
+   --mist:    #C8D4E3  (light accent — borders, surface tints)
+   ─────────────────────────────────────────────────── */
+
+:root {
+  --ivory:  #F7F3EE;
+  --black:  #1C2030;
+  --navy:   #1C3254;
+  --accent: #4A6FA5;
+  --mist:   #C8D4E3;
+
+  /* Surface tints */
+  --surface-1: #EBF0F7;
+  --surface-2: #DDE5F0;
+  --surface-3: #E3EAF6;
+  --surface-4: #EDF1F8;
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
   }
 
   body {
-    @apply text-slate-800 antialiased;
-    background-color: #f6f7f9;
-    background-image:
-      radial-gradient(ellipse 120% 80% at 50% -20%, rgba(255, 255, 255, 0.95), transparent 55%),
-      linear-gradient(180deg, #ffffff 0%, #f4f6f8 42%, #eceff3 100%);
-    background-attachment: fixed;
+    background-color: var(--ivory);
+    color: var(--black);
+    font-family: Georgia, 'Times New Roman', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 }
 
 @layer components {
-  .surface-card {
-    @apply bg-white/90 border border-slate-200/90 shadow-card backdrop-blur-sm;
+  /* ── Typography ── */
+  .kl-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: block;
   }
 
-  .surface-muted {
-    @apply bg-slate-100/55 border border-slate-200/80;
+  .kl-title {
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 300;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    color: var(--black);
   }
 
-  .eyebrow-label {
-    @apply text-sm font-semibold text-accent-700 uppercase tracking-wider;
+  .kl-title em {
+    font-style: italic;
+    color: var(--accent);
   }
 
+  .kl-rule {
+    width: 48px;
+    height: 1px;
+    background: var(--accent);
+    margin: 18px 0;
+    display: block;
+  }
+
+  /* ── Page sections ── */
+  .kl-page {
+    padding: 52px 60px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    background: var(--ivory);
+  }
+
+  .kl-page-tinted {
+    padding: 52px 60px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    background: var(--surface-4);
+  }
+
+  .kl-navy {
+    background: var(--navy);
+    color: #F7F3EE;
+    padding: 52px 60px;
+  }
+
+  /* ── Buttons ── */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-700 text-white text-sm font-medium hover:bg-accent-800 transition-colors shadow-navy;
+    background: var(--accent);
+    color: #F7F3EE;
+    padding: 11px 24px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    display: inline-flex;
+    align-items: center;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/90 text-slate-700 border border-slate-300/80 text-sm font-medium hover:bg-slate-50 transition-colors;
+    border: 1px solid rgba(200,212,227,0.25);
+    color: #F7F3EE;
+    padding: 11px 24px;
+    background: transparent;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* ── Project cards ── */
+  .proj-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2px;
+  }
+
+  .proj-top {
+    padding: 24px 28px;
+  }
+
+  .proj-outcome {
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ── Pull quote ── */
+  .kl-pull {
+    border-left: 2px solid var(--accent);
+    padding: 12px 20px;
+    background: var(--surface-1);
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--black);
+    line-height: 1.65;
+    margin: 18px 0;
+  }
+
+  /* ── Skills table ── */
+  .kl-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .kl-skill-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2px;
+  }
+
+  .kl-skill-label {
+    background: var(--navy);
+    color: var(--mist);
+    padding: 13px 18px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+  }
+
+  .kl-skill-val {
+    background: var(--surface-1);
+    padding: 13px 18px;
+    font-size: 13px;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── Tags ── */
+  .kl-tag {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--surface-1);
+    padding: 4px 10px;
+    display: inline-block;
+  }
+
+  .kl-tag-alt {
+    background: var(--surface-2);
+    color: #3A5A8A;
+  }
+
+  /* ── Footnote links ── */
+  .fn-row {
+    display: flex;
+    border-top: 1px solid rgba(74,111,165,0.15);
+    margin-top: 16px;
+  }
+
+  .fn-link {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 8px 12px 0 0;
+    margin-right: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-top: 1px solid var(--accent);
+    margin-top: -1px;
+    text-decoration: none;
+  }
+
+  .fn-row-dark {
+    display: flex;
+    border-top: 1px solid rgba(200,212,227,0.2);
+    margin-top: 14px;
+  }
+
+  .fn-link-dark {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(200,212,227,0.55);
+    padding: 8px 12px 0 0;
+    margin-right: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-top: 1px solid rgba(200,212,227,0.25);
+    margin-top: -1px;
+    text-decoration: none;
+  }
+
+  /* ── Social icon button ── */
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(200,212,227,0.3);
+    color: rgba(200,212,227,0.65);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    text-decoration: none;
+  }
+
+  .social-icon:hover {
+    border-color: var(--mist);
+    color: var(--mist);
+  }
+
+  /* ── Contact border button ── */
+  .btn-border-accent {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 16px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
   }
 }
 
-/* Hide Bolt hosting badge when deployed from Bolt */
+/* Hide Bolt hosting badge */
 a[href*='bolt.new'],
 [data-bolt-badge],
 .bolt-badge,
 #bolt-badge {
   display: none !important;
+}
+
+@media (max-width: 640px) {
+  .kl-page, .kl-page-tinted, .kl-navy {
+    padding: 36px 24px;
+  }
+  .kl-skill-row {
+    grid-template-columns: 1fr;
+  }
 }
