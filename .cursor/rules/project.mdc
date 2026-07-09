@@ -1,0 +1,43 @@
+---
+description: About Me Klairs portfolio — project conventions and guardrails
+globs:
+alwaysApply: true
+---
+
+# About Me Klairs — Project Rules
+
+Personal portfolio site for Klairs. **Maintenance mode: prefer small, low-risk
+changes.**
+
+## Read first
+
+- [`CLAUDE.md`](../../CLAUDE.md) — top-level instructions.
+- [`docs/ai/README.md`](../../docs/ai/README.md) — doc map / entry point.
+- [`docs/ai/ARCHITECTURE.md`](../../docs/ai/ARCHITECTURE.md) — how the app is built.
+- [`docs/ai/TECH_DEBT.md`](../../docs/ai/TECH_DEBT.md) — traps to know before editing.
+
+## Stack
+
+Vite 5 · React 18 · TypeScript 5 · Tailwind CSS 3 · react-router-dom 7 ·
+deployed on Vercel. Icons: `lucide-react` only. Package manager: npm.
+
+## Conventions
+
+- **Content lives in `src/data/*.ts`**, not hardcoded in page components. Edit
+  data there; `src/pages/*` render it (e.g. `CaseStudyPage` uses `getCaseStudy`).
+- **i18n:** user-facing strings for sub-pages go through `src/data/translations.ts`
+  and are read via `useLanguage()` from `src/lib/i18n.tsx`.
+- **Styling:** match what a file already uses (Tailwind utilities, custom classes
+  in `src/index.css`, or inline styles in `App.tsx`). Use the design tokens from
+  `tailwind.config.js` (`ivory`, `navy`, `accent`, `mist`, `surface.*`).
+- **Do not introduce new UI/icon libraries** unless explicitly requested.
+
+## Guardrails
+
+- Ask before structural or visual changes.
+- Contact form posts to a Google Apps Script webhook (`src/lib/contact.ts`), not
+  Supabase — `src/lib/supabase.ts` is currently unused. Don't assume DB writes.
+- Client env vars must be prefixed `VITE_`; never commit secrets (use Vercel env).
+- Run `npm run lint` and `npm run typecheck` before finishing (`build` does not
+  type-check).
+- Update [`TASKS.md`](../../TASKS.md) after making changes.
