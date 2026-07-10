@@ -6,7 +6,7 @@ Two versions: AboutMeKlairs (original) and AboutMeKlairs2 (updated).
 
 ## Tech Stack
 - TypeScript + Vite + Tailwind CSS
-- - Supabase + Vercel
- 
-  - ## Status
-  - Maintenance mode.
+- Supabase + Vercel
+
+## Status
+Maintenance mode.
