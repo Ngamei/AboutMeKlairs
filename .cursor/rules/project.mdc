@@ -1,0 +1,23 @@
+---
+description: About Me Klairs — maintenance-mode portfolio rules
+alwaysApply: true
+---
+
+# Cursor Rules - About Me Klairs
+
+Maintenance-mode portfolio. Source of truth: repo Markdown + docs/ai/.
+
+Always check before working:
+- PROJECT_CONTEXT.md
+- TASKS.md
+- docs/ai/00_AI_INDEX.md
+
+## Code Rules
+- Vite + React + TypeScript + Tailwind; keep it as-is.
+- Match existing Tailwind styling; no new UI dependencies.
+- Ask before structural or visual changes.
+
+## Change Rules
+- Keep changes minimal and scoped; explain what changed and why.
+- Update TASKS.md after changes.
+- Keep this file consistent with CLAUDE.md.
